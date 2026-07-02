@@ -19,7 +19,7 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
     {
       name: "Parwesh Kumar Karn",
       role: "Operations Manager",
-      image: "/team/Parwesh Kumar Karna.jpg"
+      image: "/team/Parwesh Sir.jpg"
     },
     {
       name: "Supriya Dwivedi",
