@@ -9,7 +9,7 @@ import Solutions from './components/Solutions';
 import WhyChooseUs from './components/WhyChooseUs';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
-import AIConsultant from './components/AIConsultant';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import EnrollmentModal from './components/EnrollmentModal';
 import { View, ModalType } from './types';
 
@@ -104,8 +104,7 @@ const App: React.FC = () => {
         type={enrollModalType}
       />
 
-      {/* Advanced AI Consultant Component */}
-      <AIConsultant />
+      <FloatingWhatsApp />
     </main>
   );
 };
