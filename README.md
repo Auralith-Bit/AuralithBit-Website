@@ -1,5 +1,3 @@
-# AuralithBit-Website
-=======
 # AuralithBit
 
 **AuralithBit – IT Institute & Solutions**  
@@ -28,8 +26,8 @@ We are a dedicated team of four professionals:
 
 - **Aakriti Bista** - Founder & CEO
 - **Anjali Bista** - Chief Technical Officer
-- **Akash Prasad Barai** - Project Manager
-- **Supriya Dwivedi** - Technical Lead
+- **Supriya Dwivedi** - Project Manager
+- **Akash Prasad Barai** - Technical Lead
 
 ---
 
