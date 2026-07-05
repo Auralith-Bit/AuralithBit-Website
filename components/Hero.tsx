@@ -14,7 +14,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate, onOpenEnrollment }) => {
       id="home"
       className="relative pt-16 pb-4 xs:pb-6 sm:pb-8 lg:pt-20 lg:pb-16 overflow-hidden min-h-screen flex items-center"
       style={{
-        backgroundImage: 'url(/Hero.jpg)',
+        backgroundImage: 'url(/Hero.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
