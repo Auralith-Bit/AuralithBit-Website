@@ -26,11 +26,6 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
       role: "Project Manager",
       image: "/team/Supriya Dwivedi.jpg"
     },
-    {
-      name: "Akash Prasad Barai",
-      role: "Technical Lead",
-      image: "/team/Akas Barai.jpeg"
-    },
   ];
 
   return (
