@@ -24,7 +24,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const socialLinks = [
     { Icon: Facebook, bgColor: 'bg-[#1877F2]', label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61583899281707&mibextid=rS40aB7S9Ucbxw6v' },
     { Icon: TikTokIcon, bgColor: 'bg-black', label: 'TikTok', href: 'https://www.tiktok.com/@auralith.bit?_r=1&_t=ZS-93Ptr3E6zKs' },
-    { Icon: Linkedin, bgColor: 'bg-[#0A66C2]', label: 'LinkedIn', href: '#' },
+    { Icon: Linkedin, bgColor: 'bg-[#0A66C2]', label: 'LinkedIn', href: 'https://www.linkedin.com/company/auralithbit' },
     { Icon: Mail, bgColor: 'bg-[#EA4335]', label: 'Gmail', href: 'mailto:info@auralithbit.com.np' }
   ];
 
@@ -105,7 +105,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li className="flex items-start gap-1.5 xs:gap-2 sm:gap-3 text-[11px] xs:text-xs sm:text-sm text-slate-500">
                 <MapPin className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-teal-600 shrink-0 mt-0.5" />
-                <span className="font-medium">Lumbini Road, Bhairahawa<br />Rupandehi, Nepal</span>
+                <span className="font-medium">SNP-05,Milan Chowk, Bhairahawa<br />Rupandehi, Nepal</span>
               </li>
             </ul>
           </div>
