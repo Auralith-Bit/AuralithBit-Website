@@ -141,10 +141,10 @@ const ContactPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                   <MapPin className="w-6 h-6" />
                 </div>
                 <h4 className="text-lg font-black text-slate-900 mb-2">Visit Us</h4>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                  Lumbini Road, Bhairahawa<br />
-                  Rupandehi, Nepal
-                </p>
+                   <p className="text-slate-500 text-sm font-medium leading-relaxed">
+                   SNP-05, Milan Chowk, Bhairahawa<br />
+                   Rupandehi, Nepal
+                 </p>
               </div>
 
               {/* Call Us */}
@@ -192,7 +192,7 @@ const ContactPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
           <div className="bg-[#f0f4f8] rounded-[3rem] p-1 border border-slate-100 shadow-inner overflow-hidden relative min-h-[500px] flex items-center justify-center group">
             <div className="absolute inset-0 z-0">
                <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14138.868019349883!2d83.43577317240398!3d27.50917614041187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399696667a969343%3A0x6734c5678996e123!2sLumbini%20Rd%2C%20Bhairahawa!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
+                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14138.868019349883!2d83.45103!3d27.50586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399696667a969343%3A0x6734c5678996e123!2sSNP%2005%2C%20Milan%20Chowk%2C%20Bhairahawa!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0, opacity: 0.8 }} 
@@ -219,7 +219,7 @@ const ContactPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                </div>
                 <div>
                    <h4 className="font-black text-slate-900 text-sm tracking-tight">AuralithBit</h4>
-                  <p className="text-slate-500 font-bold uppercase text-[9px] tracking-[0.2em] mt-0.5">Lumbini Road, Bhairahawa, Nepal</p>
+                   <p className="text-slate-500 font-bold uppercase text-[9px] tracking-[0.2em] mt-0.5">SNP-05, Milan Chowk, Bhairahawa</p>
                </div>
             </div>
           </div>
