@@ -4,34 +4,11 @@ import { View } from '../types';
 import { STATS } from '../constants';
 
 const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () => void }> = ({ onOpenEnrollment }) => {
-  const teamMembers = [
-    {
-      name: "Aakriti Bista",
-      role: "Founder & CEO",
-      image: "/team/Aakriti Bista.jpeg"
-    },
-
-    {
-      name: "Anjali Bista",
-      role: "Chief Technical Officer",
-      image: "/team/Anjali Bista.jpg"
-    },
-    {
-      name: "Parwesh Kumar Karn",
-      role: "Operations Manager",
-      image: "/team/Parwesh Sir.jpg"
-    },
-    {
-      name: "Supriya Dwivedi",
-      role: "Project Manager",
-      image: "/team/Supriya Dwivedi.jpg"
-    },
-    {
-      name: "Akash Prasad Barai",
-      role: "Technical Lead",
-      image: "/team/Akas Barai.jpeg"
-    },
-  ];
+  const ceo = {
+    name: "Aakriti Bista",
+    role: "Founder & CEO",
+    image: "/team/Aakriti Bista.jpeg"
+  };
 
   return (
     <div className="pt-16 overflow-x-hidden">
@@ -165,46 +142,90 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
         </div>
       </section>
 
-      {/* 5️⃣ Organization Members Section */}
+      {/* 5️⃣ Founder & CEO Section */}
       <section id="team" className="py-24 bg-slate-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-xs font-black text-indigo-600 uppercase tracking-[0.4em]">The Minds Behind AuralithBit</h2>
-            <h3 className="text-4xl font-black text-slate-900 tracking-tight">Our Leadership & Experts</h3>
+            <h2 className="text-xs font-black text-indigo-600 uppercase tracking-[0.4em]">The Vision Behind AuralithBit</h2>
+            <h3 className="text-4xl font-black text-slate-900 tracking-tight">Meet Our Founder & CEO</h3>
             <p className="text-slate-500 max-w-2xl mx-auto font-medium">
-              Meet the dedicated professionals committed to your technical growth and success.
+              The driving force behind our mission to transform IT education and digital solutions.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-            {teamMembers.map((member, i) => (
-              <div 
-                key={i} 
-                className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group"
-              >
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-primary-gradient rounded-[3rem] opacity-20 group-hover:opacity-30 blur-xl transition-all duration-500" />
+              <div className="relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500">
                 <div className="aspect-[4/5] overflow-hidden relative">
                   <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    src={ceo.image} 
+                    alt={ceo.name} 
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
                     <div className="flex gap-4">
-                      <a href="#" className="p-2 bg-white/10 backdrop-blur-md rounded-lg text-white hover:bg-indigo-600 transition-colors">
-                        <Linkedin className="w-4 h-4" />
+                      <a href="#" className="p-2.5 bg-white/10 backdrop-blur-md rounded-xl text-white hover:bg-indigo-600 transition-colors">
+                        <Linkedin className="w-5 h-5" />
                       </a>
-                      <a href="#" className="p-2 bg-white/10 backdrop-blur-md rounded-lg text-white hover:bg-teal-600 transition-colors">
-                        <Mail className="w-4 h-4" />
+                      <a href="#" className="p-2.5 bg-white/10 backdrop-blur-md rounded-xl text-white hover:bg-teal-600 transition-colors">
+                        <Mail className="w-5 h-5" />
                       </a>
                     </div>
                   </div>
                 </div>
                 <div className="p-6 text-center">
-                  <h4 className="text-lg font-black text-slate-900 tracking-tight whitespace-nowrap">{member.name}</h4>
-                  <p className="text-[10px] font-black text-indigo-600 uppercase tracking-widest mt-1 mb-3">{member.role}</p>
+                  <h4 className="text-xl font-black text-slate-900 tracking-tight">{ceo.name}</h4>
+                  <p className="text-xs font-black text-indigo-600 uppercase tracking-widest mt-1">{ceo.role}</p>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="space-y-6">
+              <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600">
+                    <Award className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-xl font-black text-slate-900">Aakriti Bista</h4>
+                </div>
+                <p className="text-slate-600 font-medium leading-relaxed">
+                  With a relentless passion for technology and education, Aakriti founded AuralithBit with a singular vision — to bridge the gap between academic learning and real-world industry demands. Her leadership has driven the company to become a trusted partner for businesses seeking cutting-edge digital solutions and a launching pad for careers in IT.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm text-center">
+                  <div className="text-3xl font-black text-indigo-600 mb-1">5+</div>
+                  <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Years Leading</div>
+                </div>
+                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm text-center">
+                  <div className="text-3xl font-black text-teal-600 mb-1">100+</div>
+                  <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Projects Delivered</div>
+                </div>
+              </div>
+
+              <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
+                <h4 className="text-lg font-black text-slate-900 mb-3">Her Vision</h4>
+                <p className="text-slate-600 font-medium leading-relaxed">
+                  "We don't just teach technology — we engineer futures. Every student who walks through our doors leaves with the skills, confidence, and industry exposure to thrive in the global tech landscape."
+                </p>
+                <div className="mt-4 pt-4 border-t border-slate-100">
+                  <p className="text-sm text-slate-500 font-medium">
+                    Under her leadership, AuralithBit has grown from a small training institute into a full-scale IT solutions provider, serving clients across Nepal and beyond.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <a href="#" className="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-indigo-700 transition-all hover:shadow-lg hover:shadow-indigo-500/30">
+                  <Linkedin className="w-4 h-4" /> Connect on LinkedIn
+                </a>
+                <a href="#" className="flex items-center gap-2 bg-white text-slate-700 px-6 py-3 rounded-xl font-bold text-sm border border-slate-200 hover:border-teal-500 hover:text-teal-600 transition-all">
+                  <Mail className="w-4 h-4" /> Send an Email
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -124,7 +124,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li className="flex items-start gap-1.5 xs:gap-2 sm:gap-3 text-[11px] xs:text-xs sm:text-sm text-slate-500">
                 <MapPin className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-teal-600 shrink-0 mt-0.5" />
-                <span className="font-medium">Lumbini Road, Bhairahawa<br />Rupandehi, Nepal</span>
+                <span className="font-medium">SNP-05, Milan Chowk, Bhairahawa<br />Rupandehi, Nepal</span>
               </li>
             </ul>
           </div>

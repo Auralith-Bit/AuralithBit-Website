@@ -170,7 +170,7 @@ const ContactPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                 </div>
                 <h4 className="text-lg font-black text-slate-900 mb-2">Visit Us</h4>
                 <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                  Lumbini Road, Bhairahawa<br />
+                  SNP-05, Milan Chowk, Bhairahawa<br />
                   Rupandehi, Nepal
                 </p>
               </div>
@@ -247,7 +247,7 @@ const ContactPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                </div>
                 <div>
                    <h4 className="font-black text-slate-900 text-sm tracking-tight">AuralithBit</h4>
-                  <p className="text-slate-500 font-bold uppercase text-[9px] tracking-[0.2em] mt-0.5">Lumbini Road, Bhairahawa, Nepal</p>
+                  <p className="text-slate-500 font-bold uppercase text-[9px] tracking-[0.2em] mt-0.5">SNP-05, Milan Chowk, Bhairahawa, Nepal</p>
                </div>
             </div>
           </div>
