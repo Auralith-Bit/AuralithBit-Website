@@ -153,10 +153,10 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center">
-              <div className="flex flex-col items-center bg-white rounded-2xl p-6 border border-slate-100 shadow-lg max-w-xs w-full">
-                <div className="w-40 h-40 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-white shadow-inner">
+              <div className="flex flex-col items-center bg-white rounded-2xl p-8 border border-slate-100 shadow-lg max-w-sm w-full">
+                <div className="w-44 h-44 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-white shadow-inner">
                   <img src={ceo.image} alt={ceo.name} className="w-full h-full object-cover" />
                 </div>
                 <div className="text-center mt-4">
@@ -167,7 +167,7 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
             </div>
 
             <div className="flex items-center">
-              <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm w-full">
+              <div className="bg-white p-10 rounded-2xl border border-slate-100 shadow-sm w-full">
                 <h4 className="text-xl sm:text-2xl font-black text-slate-900 mb-4">About Our CEO</h4>
                 <p className="text-slate-600 font-medium leading-relaxed mb-3">
                   Aakriti leads AuralithBit with a clear focus on bridging education and industry. She prioritizes hands-on, project-based learning and client-focused solutions so students graduate with practical skills and workplace confidence.
