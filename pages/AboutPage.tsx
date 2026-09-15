@@ -155,25 +155,36 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="flex justify-center">
-              <div className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-lg max-w-sm">
+              <div className="bg-white rounded-[1rem] overflow-hidden border border-slate-100 shadow-lg w-full max-w-xs">
                 <img
                   src={ceo.image}
                   alt={ceo.name}
-                  className="w-full h-80 object-cover rounded-[1.25rem]"
+                  className="w-full h-80 sm:h-96 object-cover"
                 />
-                <div className="p-6 text-center">
-                  <h4 className="text-xl font-black text-slate-900 tracking-tight">{ceo.name}</h4>
-                  <p className="text-xs font-black text-indigo-600 uppercase tracking-widest mt-1">{ceo.role}</p>
+                <div className="p-5 text-center">
+                  <h4 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">{ceo.name}</h4>
+                  <p className="text-xs sm:text-sm text-indigo-600 uppercase tracking-widest mt-1">{ceo.role}</p>
                 </div>
               </div>
             </div>
 
             <div>
-              <div className="bg-white p-8 rounded-[1.5rem] border border-slate-100 shadow-sm">
-                <h4 className="text-lg font-black text-slate-900 mb-3">About Our CEO</h4>
-                <p className="text-slate-600 font-medium leading-relaxed">
-                  Aakriti leads AuralithBit with a clear focus on bridging education and industry. She emphasizes practical, project-based learning and client-focused solutions to prepare students for real-world tech careers.
+              <div className="bg-white p-8 rounded-[1rem] border border-slate-100 shadow-sm">
+                <h4 className="text-lg sm:text-xl font-black text-slate-900 mb-3">About Our CEO</h4>
+                <p className="text-slate-600 font-medium leading-relaxed mb-3">
+                  Aakriti leads AuralithBit with a clear focus on bridging education and industry. She prioritizes hands-on, project-based learning and client-focused solutions so students graduate with practical skills and workplace confidence.
                 </p>
+                <p className="text-slate-600 font-medium leading-relaxed">
+                  Under her leadership, the institute partners with real clients to give learners exposure to production workflows and delivers enterprise-grade digital solutions that help businesses scale.
+                </p>
+                <div className="mt-6 flex gap-3">
+                  <a href="#" className="inline-flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition">
+                    <Linkedin className="w-4 h-4" /> Connect
+                  </a>
+                  <a href="#" className="inline-flex items-center gap-2 bg-white text-slate-700 px-4 py-2 rounded-lg text-sm font-semibold border border-slate-200 hover:border-teal-500 hover:text-teal-600 transition">
+                    <Mail className="w-4 h-4" /> Email
+                  </a>
+                </div>
               </div>
             </div>
           </div>
