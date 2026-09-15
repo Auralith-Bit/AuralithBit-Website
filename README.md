@@ -31,17 +31,17 @@ We are a dedicated team of four professionals:
 
 ---
 
-## 🎓 Courses Offered (December 2025)
+## 🎓 Courses Offered (current)
 
-Current course offerings with Nepalese Rupee (NPR) pricing:
+Current course offerings with Nepalese Rupee (NPR) pricing — note: course prices are capped at NPR 20,000 on this site.
 
-- **UI/UX Designing** - NPR 25,000 (2.5 Months)
-- **MERN Stack Development** - NPR 35,000 (3 Months)
+- **UI/UX Designing** - NPR 20,000 (2.5 Months)
+- **MERN Stack Development** - NPR 20,000 (3 Months)
 - **Graphic Designing** - NPR 20,000 (2 Months)
-- **Quality Assurance (QA)** - NPR 28,000 (2.5 Months)
-- **Web Designing** - NPR 22,000 (2 Months)
-- **Digital Marketing** - NPR 26,000 (2.5 Months)
-- **Python Programming** - NPR 30,000 (3 Months)
+- **Quality Assurance (QA)** - NPR 20,000 (2.5 Months)
+- **Web Designing** - NPR 20,000 (2 Months)
+- **Digital Marketing** - NPR 20,000 (2.5 Months)
+- **Python Programming** - NPR 20,000 (3 Months)
 - **Office Package** - NPR 15,000 (1.5 Months)
 
 ---
@@ -68,6 +68,25 @@ Enrollment and course details are available via:
 - Location: Lumbini Road, Bhairahawa, Rupandehi, Nepal
 
 ---
+
+## 🛠️ Development
+
+Clone, install dependencies and run locally:
+
+```bash
+git clone https://github.com/Auralith-Bit/AuralithBit-Website.git
+cd AuralithBit-Website
+npm ci
+npm run dev    # start local dev server
+npm run build  # build for production
+```
+
+Production build artifacts are emitted to the `dist/` folder by Vite.
+
+## 🚀 Deploying / Render
+
+If the site is hosted on Render (or similar), make sure the service is connected to this repository and the `main` branch. Trigger a manual deploy from the Render dashboard if changes do not appear after a push. If Render serves cached assets, use the dashboard to clear cache or redeploy.
+
 
 ## 📞 Contact
 
