@@ -9,8 +9,7 @@ import {
 import { View } from '../types';
 import GlassHero from '../components/GlassHero';
 
-// All form submissions are delivered as a pre-filled WhatsApp message to this number.
-const WHATSAPP_NUMBER = '9779766715793'; // +977 9766715793 (country code required for wa.me links)
+const AURALITH_EMAIL = 'info@auralithbit.com.np';
 
 const ContactPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () => void }> = ({ onOpenEnrollment }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,25 +31,24 @@ const ContactPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Build a pre-filled WhatsApp message with the form details and open it
-    // so the submission is delivered straight to AuralithBit's WhatsApp.
     const lines = [
-      '*New Contact Form Message*',
+      'New Contact Form Message',
       `Name: ${formData.name}`,
       `Email: ${formData.email}`,
       `Phone: ${formData.phone}`,
       formData.course ? `Interested Course: ${formData.course}` : '',
       `Message: ${formData.message}`,
     ].filter(Boolean);
-    const message = encodeURIComponent(lines.join('\n'));
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+
+    const subject = encodeURIComponent('New Contact Form Message');
+    const body = encodeURIComponent(lines.join('\n'));
+    const mailtoUrl = `mailto:${AURALITH_EMAIL}?subject=${subject}&body=${body}`;
 
     setTimeout(() => {
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      alert("Thank you! We've opened WhatsApp with your message ready to send to our team.");
+      window.location.href = mailtoUrl;
       setIsSubmitting(false);
       setFormData({ name: '', email: '', phone: '', course: '', message: '' });
-    }, 800);
+    }, 300);
   };
 
   return (
@@ -75,28 +73,28 @@ const ContactPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
 
           <div className="grid lg:grid-cols-12 gap-12 items-start">
             {/* Left: Send us a Message Form */}
-            <div className="lg:col-span-7 bg-white p-10 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-sm hover:border-teal-500 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
+            <div className="lg:col-span-7 bg-white/90 p-8 md:p-10 rounded-[2rem] border border-slate-200 shadow-[0_20px_50px_rgba(15,23,42,0.08)] hover:border-indigo-200 hover:shadow-[0_24px_60px_rgba(79,70,229,0.12)] transition-all duration-300 backdrop-blur-sm">
               <h3 className="text-2xl font-black text-slate-900 mb-8">Send us a Message</h3>
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700 ml-1">Full Name</label>
-                  <input required type="text" value={formData.name} onChange={handleChange('name')} placeholder="John Doe" className="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all placeholder:text-slate-300 font-medium" />
+                  <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 ml-1">Full Name</label>
+                  <input required type="text" value={formData.name} onChange={handleChange('name')} placeholder="John Doe" className="w-full bg-slate-50/80 border border-slate-200 p-4 rounded-2xl focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all placeholder:text-slate-400 font-medium shadow-sm" />
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 ml-1">Email Address</label>
-                    <input required type="email" value={formData.email} onChange={handleChange('email')} placeholder="john@example.com" className="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all placeholder:text-slate-300 font-medium" />
+                    <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 ml-1">Email Address</label>
+                    <input required type="email" value={formData.email} onChange={handleChange('email')} placeholder="john@example.com" className="w-full bg-slate-50/80 border border-slate-200 p-4 rounded-2xl focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all placeholder:text-slate-400 font-medium shadow-sm" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 ml-1">Phone Number</label>
-                    <input required type="text" value={formData.phone} onChange={handleChange('phone')} placeholder="+977 9800000000" className="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all placeholder:text-slate-300 font-medium" />
+                    <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 ml-1">Phone Number</label>
+                    <input required type="text" value={formData.phone} onChange={handleChange('phone')} placeholder="+977 9800000000" className="w-full bg-slate-50/80 border border-slate-200 p-4 rounded-2xl focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all placeholder:text-slate-400 font-medium shadow-sm" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700 ml-1">Interested Course</label>
-                  <select value={formData.course} onChange={handleChange('course')} className="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-bold text-slate-600 appearance-none">
+                  <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 ml-1">Interested Course</label>
+                  <select value={formData.course} onChange={handleChange('course')} className="w-full bg-slate-50/80 border border-slate-200 p-4 rounded-2xl focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all font-bold text-slate-600 appearance-none shadow-sm">
                     <option value="">Select a course</option>
                     <option>Full Stack Web Development</option>
                     <option>UI/UX Design Masterclass</option>
@@ -107,15 +105,15 @@ const ContactPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700 ml-1">Message</label>
-                  <textarea required rows={5} value={formData.message} onChange={handleChange('message')} placeholder="Tell us about your learning goals..." className="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all placeholder:text-slate-300 font-medium"></textarea>
+                  <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 ml-1">Message</label>
+                  <textarea required rows={5} value={formData.message} onChange={handleChange('message')} placeholder="Tell us about your learning goals..." className="w-full bg-slate-50/80 border border-slate-200 p-4 rounded-2xl focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all placeholder:text-slate-400 font-medium shadow-sm resize-none"></textarea>
                 </div>
 
                 <div className="pt-4">
                   <button 
                     disabled={isSubmitting}
                     type="submit"
-                    className="w-full bg-primary-gradient text-white py-5 rounded-2xl font-black text-lg flex items-center justify-center gap-3 hover:shadow-2xl hover:shadow-indigo-500/40 transition-all active:scale-[0.98] disabled:opacity-50"
+                    className="w-full bg-gradient-to-r from-indigo-600 via-violet-600 to-teal-500 text-white py-4 rounded-2xl font-black text-lg flex items-center justify-center gap-3 hover:shadow-[0_16px_30px_rgba(79,70,229,0.35)] transition-all active:scale-[0.99] disabled:opacity-50"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="w-5 h-5" />

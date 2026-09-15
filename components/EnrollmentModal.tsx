@@ -10,8 +10,7 @@ interface EnrollmentModalProps {
   type: ModalType;
 }
 
-// All form submissions are delivered as a pre-filled WhatsApp message to this number.
-const WHATSAPP_NUMBER = '9779766715793'; // +977 9766715793 (country code required for wa.me links)
+const AURALITH_EMAIL = 'info@auralithbit.com.np';
 
 const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type }) => {
   const [step, setStep] = useState<'form' | 'success'>('form');
@@ -50,25 +49,24 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Build a pre-filled WhatsApp message with the form details and open it
-    // so the submission is delivered straight to AuralithBit's WhatsApp.
     const currentContent = getModalContent();
     const lines = [
-      `*New ${content_typeLabel}*`,
+      `New ${content_typeLabel}`,
       `Name: ${formData.name}`,
       `Email: ${formData.email}`,
       `Phone: ${formData.phone}`,
       `${currentContent.selectionLabel}: ${formData.selection}`,
       currentContent.extraLabel ? `${currentContent.extraLabel}: ${formData.extra}` : '',
     ].filter(Boolean);
-    const message = encodeURIComponent(lines.join('\n'));
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+    const subject = encodeURIComponent(`New ${content_typeLabel}`);
+    const body = encodeURIComponent(lines.join('\n'));
+    const mailtoUrl = `mailto:${AURALITH_EMAIL}?subject=${subject}&body=${body}`;
 
     setTimeout(() => {
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      window.location.href = mailtoUrl;
       setIsSubmitting(false);
       setStep('success');
-    }, 800);
+    }, 300);
   };
 
   const getModalContent = () => {
@@ -188,7 +186,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
                           value={formData.name}
                           onChange={(e) => setFormData({...formData, name: e.target.value})}
                           placeholder="Alex Johnson"
-                          className="w-full pl-9 sm:pl-11 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-xs sm:text-sm font-medium"
+                          className="w-full pl-9 sm:pl-11 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-white border border-slate-200 rounded-xl shadow-sm focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-xs sm:text-sm font-medium"
                         />
                       </div>
                     </div>
@@ -202,7 +200,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
                           value={formData.phone}
                           onChange={(e) => setFormData({...formData, phone: e.target.value})}
                           placeholder="+977 9800000000"
-                          className="w-full pl-9 sm:pl-11 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-xs sm:text-sm font-medium"
+                          className="w-full pl-9 sm:pl-11 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-white border border-slate-200 rounded-xl shadow-sm focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-xs sm:text-sm font-medium"
                         />
                       </div>
                     </div>
@@ -218,7 +216,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                         placeholder="name@company.com"
-                        className="w-full pl-9 sm:pl-11 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-xs sm:text-sm font-medium"
+                        className="w-full pl-9 sm:pl-11 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-white border border-slate-200 rounded-xl shadow-sm focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-xs sm:text-sm font-medium"
                       />
                     </div>
                   </div>
@@ -230,7 +228,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
                       <select 
                         value={formData.selection}
                         onChange={(e) => setFormData({...formData, selection: e.target.value})}
-                        className="w-full pl-9 sm:pl-11 pr-8 sm:pr-10 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-xs sm:text-sm font-bold text-slate-700 appearance-none"
+                        className="w-full pl-9 sm:pl-11 pr-8 sm:pr-10 py-2.5 sm:py-3 bg-white border border-slate-200 rounded-xl shadow-sm focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-xs sm:text-sm font-bold text-slate-700 appearance-none"
                       >
                         {content.options.map(opt => <option key={opt}>{opt}</option>)}
                       </select>
@@ -254,7 +252,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
                           value={formData.extra}
                           onChange={(e) => setFormData({...formData, extra: e.target.value})}
                           placeholder={content.extraPlaceholder}
-                          className="w-full pl-9 sm:pl-11 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-xs sm:text-sm font-medium"
+                          className="w-full pl-9 sm:pl-11 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-white border border-slate-200 rounded-xl shadow-sm focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-xs sm:text-sm font-medium"
                         />
                       </div>
                     </div>

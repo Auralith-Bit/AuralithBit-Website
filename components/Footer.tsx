@@ -5,8 +5,7 @@ import { NAV_ITEMS } from '../constants';
 import { View } from '../types';
 import BrandLogo from './BrandLogo';
 
-// Newsletter sign-ups are delivered as a WhatsApp message to this number.
-const WHATSAPP_NUMBER = '9779766715793'; // +977 9766715793
+const AURALITH_EMAIL = 'info@auralithbit.com.np';
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg 
@@ -31,10 +30,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     e.preventDefault();
     if (!newsletterEmail.trim()) return;
 
-    const message = encodeURIComponent(
-      `*New Newsletter Signup*\nEmail: ${newsletterEmail}`
-    );
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank', 'noopener,noreferrer');
+    const subject = encodeURIComponent('New Newsletter Signup');
+    const body = encodeURIComponent(`Email: ${newsletterEmail}`);
+    window.location.href = `mailto:${AURALITH_EMAIL}?subject=${subject}&body=${body}`;
 
     setNewsletterSent(true);
     setNewsletterEmail('');
@@ -139,14 +137,14 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 value={newsletterEmail}
                 onChange={(e) => setNewsletterEmail(e.target.value)}
                 placeholder="Email address" 
-                className="bg-slate-50 border border-slate-200 rounded-xl px-2.5 xs:px-3 sm:px-4 py-2 xs:py-2.5 sm:py-3 text-[11px] xs:text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 flex-grow"
+                className="bg-slate-50/80 border border-slate-200 rounded-xl px-2.5 xs:px-3 sm:px-4 py-2 xs:py-2.5 sm:py-3 text-[11px] xs:text-xs sm:text-sm focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 flex-grow shadow-sm"
               />
-              <button type="submit" className="bg-indigo-600 text-white px-3 xs:px-4 sm:px-5 py-2 xs:py-2.5 sm:py-3 rounded-xl hover:bg-indigo-700 transition-all font-bold text-[10px] xs:text-xs sm:text-sm shrink-0">
+              <button type="submit" className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white px-3 xs:px-4 sm:px-5 py-2 xs:py-2.5 sm:py-3 rounded-xl hover:shadow-lg hover:shadow-indigo-500/20 transition-all font-bold text-[10px] xs:text-xs sm:text-sm shrink-0">
                 Join
               </button>
             </form>
             {newsletterSent && (
-              <p className="text-teal-600 text-[10px] xs:text-xs font-bold">Thanks! We've opened WhatsApp to confirm your signup.</p>
+              <p className="text-teal-600 text-[10px] xs:text-xs font-bold">Thanks! Your signup is ready to send via email.</p>
             )}
           </div>
 
