@@ -1,14 +1,11 @@
 import React from 'react';
-import { View, UpcomingClass } from '../types';
+import { View } from '../types';
+import { UPCOMING_CLASSES } from '../constants';
 
 interface Props {
   onNavigate: (view: View) => void;
   onOpenEnrollment: (type?: any) => void;
 }
-
-const sampleClasses: UpcomingClass[] = [
-  { id: '1', title: 'Intro to Web Dev', date: '2026-10-01', time: '10:00 AM', instructor: 'Jane Doe' },
-];
 
 const UpcomingClasses: React.FC<Props> = ({ onNavigate, onOpenEnrollment }) => {
   return (
@@ -16,7 +13,7 @@ const UpcomingClasses: React.FC<Props> = ({ onNavigate, onOpenEnrollment }) => {
       <div className="max-w-6xl mx-auto px-4">
         <h3 className="text-2xl font-bold mb-6">Upcoming Classes</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {sampleClasses.map((c) => (
+          {UPCOMING_CLASSES.map((c) => (
             <div key={c.id} className="p-6 bg-white rounded-xl shadow">
               <h4 className="text-lg font-semibold">{c.title}</h4>
               <p className="text-sm text-gray-600">{c.date} • {c.time}</p>
