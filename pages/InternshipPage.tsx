@@ -16,6 +16,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { View } from '../types';
+import GlassHero from '../components/GlassHero';
 
 const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () => void }> = ({ onOpenEnrollment }) => {
   const whyIntern = [
@@ -91,52 +92,13 @@ const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment
 
   return (
     <div className="pt-16 bg-white">
-      {/* 1️⃣ Hero Section */}
-      <section className="relative min-h-auto sm:min-h-[70vh] flex items-center overflow-hidden bg-slate-900 py-8 xs:py-10 sm:py-16">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=2000"
-            alt="Internship Program - Career Growth"
-            className="absolute inset-0 w-full h-full object-cover opacity-30 sm:opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-slate-900" />
-          <div className="absolute top-[-10%] right-[-10%] w-[150px] xs:w-[200px] sm:w-[300px] md:w-[400px] h-[150px] xs:h-[200px] sm:h-[300px] md:h-[400px] bg-indigo-600/20 rounded-full blur-[50px] xs:blur-[60px] sm:blur-[80px] md:blur-[100px]" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[100px] xs:w-[150px] sm:w-[250px] md:w-[400px] h-[100px] xs:h-[150px] sm:h-[250px] md:h-[400px] bg-teal-500/10 rounded-full blur-[30px] xs:blur-[40px] sm:blur-[60px] md:blur-[80px]" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-block px-2 xs:px-3 sm:px-4 md:px-5 py-0.5 xs:py-1 sm:py-1.5 md:py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[9px] xs:text-[9px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-wider sm:tracking-widest mb-1.5 xs:mb-2 sm:mb-3">
-            Career Accelerator
-          </div>
-          
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-white tracking-tight leading-tight mb-3 sm:mb-4">
-            Kickstart Your Career with <br className="hidden xs:block" />
-            <span className="text-gradient">Real Experience</span>
-          </h1>
-
-          <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-xl font-bold text-slate-300 tracking-[0.08em] xs:tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.25em] uppercase mb-2 sm:mb-4 flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-4">
-            <span>Learn</span>
-            <span className="w-1.5 h-1.5 xs:w-1.5 sm:w-2 xs:h-1.5 sm:h-2 rounded-full bg-indigo-500"></span>
-            <span>Build</span>
-            <span className="w-1.5 h-1.5 xs:w-1.5 sm:w-2 xs:h-1.5 sm:h-2 rounded-full bg-teal-500"></span>
-            <span className="text-teal-400">Excel</span>
-          </p>
-
-           <p className="text-indigo-100/70 text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed font-medium px-1 xs:px-2">
-             Join the AuralithBit Internship Program. Work on live projects, get mentored by industry experts, and turn your knowledge into professional skills.
-           </p>
-
-           <div className="flex justify-center mt-4 sm:mt-6">
-            <button 
-              onClick={onOpenEnrollment}
-              className="w-full sm:w-auto bg-primary-gradient text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-sm sm:text-base flex items-center justify-center gap-2 hover:shadow-2xl hover:shadow-indigo-500/40 transition-all hover:-translate-y-1 active:scale-95"
-            >
-              <Rocket className="w-5 h-5" />
-              Apply for Internship
-            </button>
-          </div>
-        </div>
-      </section>
+      <GlassHero
+        title={<>Kickstart Your Career with <span className="text-gradient">Real Experience</span></>}
+        subtitle={"Join the AuralithBit Internship Program. Work on live projects, get mentored by industry experts, and turn your knowledge into professional skills."}
+        image="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=2000"
+        ctaText="Apply for Internship"
+        onCta={onOpenEnrollment}
+      />
 
       {/* 2️⃣ Why Intern With Us */}
       <section className="py-24 bg-slate-50/30">
