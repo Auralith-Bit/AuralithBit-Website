@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from '../types';
-import { UPCOMING_CLASSES } from '../constants';
+import { UPCOMING_CLASSES, COURSES } from '../constants';
 
 interface Props {
   onNavigate: (view: View) => void;
@@ -8,6 +8,26 @@ interface Props {
 }
 
 const UpcomingClasses: React.FC<Props> = ({ onNavigate, onOpenEnrollment }) => {
+  const findCourseFor = (title: string) => {
+    const lower = title.toLowerCase();
+    return COURSES.find((course) => course.title.toLowerCase().includes(lower) || lower.includes(course.title.toLowerCase()));
+  };
+
+  const goToCourse = (classTitle: string) => {
+    const match = findCourseFor(classTitle);
+    // navigate to courses page first
+    if (match) {
+      onNavigate('courses');
+      // allow page switch to render then scroll
+      setTimeout(() => {
+        const el = document.getElementById(`course-${match.id}`);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 220);
+    } else {
+      onNavigate('courses');
+    }
+  };
+
   return (
     <section className="py-16">
       <div className="max-w-6xl mx-auto px-4">
@@ -20,7 +40,7 @@ const UpcomingClasses: React.FC<Props> = ({ onNavigate, onOpenEnrollment }) => {
               <p className="mt-2 text-sm">Instructor: {c.instructor}</p>
               <div className="mt-4 flex gap-3">
                 <button onClick={() => onOpenEnrollment('course')} className="px-4 py-2 bg-indigo-600 text-white rounded">Enroll</button>
-                <button onClick={() => onNavigate('courses')} className="px-4 py-2 border rounded">View Courses</button>
+                <button onClick={() => goToCourse(c.title)} className="px-4 py-2 border rounded">View Course</button>
               </div>
             </div>
           ))}

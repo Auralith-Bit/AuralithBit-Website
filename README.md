@@ -58,7 +58,7 @@ We are a dedicated team of professionals based in Bhairahawa, Lumbini Province, 
 
 ## 📍 Location
 
-Lumbini Road, Bhairahawa, Rupandehi, Lumbini Province, Nepal
+SNP-05, Milan Chowk, Bhairahawa, Rupandehi, Nepal
 
 ---
 - 🎓 Offline, Online & Hybrid learning options

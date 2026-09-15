@@ -265,6 +265,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
             {filteredCourses.map((course) => (
               <div 
+                id={`course-${course.id}`}
                 key={course.id} 
                 className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group cursor-pointer active:scale-[0.98]"
                 onClick={() => { setSelectedCourse(course); window.scrollTo(0, 0); }}
