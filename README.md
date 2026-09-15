@@ -25,9 +25,6 @@ AuralithBit aims to help students and learners build strong foundations in infor
 We are a dedicated team of four professionals:
 
 - **Aakriti Bista** - Founder & CEO
-- **Anjali Bista** - Chief Technical Officer
-- **Supriya Dwivedi** - Project Manager
-- **Akash Prasad Barai** - Technical Lead
 
 ---
 
@@ -50,9 +47,6 @@ Current course offerings with Nepalese Rupee (NPR) pricing — note: course pric
 We are a dedicated team of professionals based in Bhairahawa, Lumbini Province, Nepal:
 - 📌 Experienced instructors from our dedicated team
 - **Aakriti Bista** - Founder & CEO
-- **Anjali Bista** - Chief Technical Officer
-- **Supriya Dwivedi** - Head of Projects
-- **Akash Prasad Barai** - Technical Lead
 - 💰 Affordable Nepal-based pricing
 ---
 
@@ -72,7 +66,7 @@ Enrollment and course details are available via:
 - Official website: `https://www.auralithbit.com.np/`  
 - Phone: +977 9766715783 / +977 9766715793
 - Email: info@auralithbit.com.np
-- Location: Lumbini Road, Bhairahawa, Rupandehi, Nepal
+- Location: SNP-05, Milan Chowk, Bhairahawa, Rupandehi, Nepal
 
 ---
 
@@ -99,7 +93,7 @@ If the site is hosted on Render (or similar), make sure the service is connected
 
 - **Phone:** +977 9766715783 / +977 9766715793  
 - **Email:** info@auralithbit.com.np
-- **Location:** Lumbini Road, Bhairahawa, Rupandehi, Nepal
+- **Location:** SNP-05, Milan Chowk, Bhairahawa, Rupandehi, Nepal
 - **Hours:** Sunday - Friday, 7:00 AM - 6:00 PM
 
 ---
