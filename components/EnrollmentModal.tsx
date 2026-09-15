@@ -117,14 +117,14 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[110] flex items-start justify-center overflow-y-auto p-3 sm:p-4 pt-20 sm:pt-24">
+    <div className="fixed inset-0 z-[110] flex items-start justify-center overflow-y-auto p-2 sm:p-4 pt-14 sm:pt-20 lg:pt-24">
       {/* Overlay */}
       <div 
         className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-300" 
         onClick={onClose}
       />
       
-      <div className="relative w-full max-w-[900px] max-h-[72vh] sm:max-h-[76vh] bg-white rounded-[1.75rem] shadow-[0_30px_80px_rgba(79,70,229,0.18)] overflow-hidden animate-in zoom-in-95 slide-in-from-bottom-10 duration-500 flex flex-col">
+      <div className="relative w-full max-w-[860px] max-h-[70vh] sm:max-h-[76vh] lg:max-h-[80vh] bg-white rounded-[1.5rem] sm:rounded-[1.75rem] shadow-[0_30px_80px_rgba(79,70,229,0.18)] overflow-hidden animate-in zoom-in-95 slide-in-from-bottom-10 duration-500 flex flex-col">
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 sm:top-5 sm:right-5 z-50 p-3 sm:p-4 rounded-full bg-slate-200/90 hover:bg-slate-300 shadow-lg transition-all text-slate-700 hover:text-slate-900 hover:scale-110 active:scale-95"
@@ -133,27 +133,27 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
           <X className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
 
-        <div className="grid md:grid-cols-[0.9fr_1.25fr] h-full overflow-y-auto">
-          <div className="hidden md:flex bg-gradient-to-br from-[#4f46e5] via-[#5b53d7] to-[#7c3aed] p-6 xl:p-8 flex-col justify-between text-white relative overflow-hidden">
+        <div className="grid md:grid-cols-[0.88fr_1.2fr] h-full overflow-y-auto">
+          <div className="hidden md:flex bg-gradient-to-br from-[#4f46e5] via-[#5b53d7] to-[#7c3aed] p-5 xl:p-7 flex-col justify-between text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.18),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(34,211,238,0.15),_transparent_20%)] pointer-events-none" />
             <div className="relative z-10">
-              <div className="w-10 h-10 bg-white/15 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]">
+              <div className="w-10 h-10 bg-white/15 backdrop-blur-md rounded-2xl flex items-center justify-center mb-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]">
                 {type === 'internship' ? <Briefcase className="w-5 h-5" /> : type === 'solution' ? <Globe className="w-5 h-5" /> : <Rocket className="w-5 h-5" />}
               </div>
-              <h2 className="text-4xl xl:text-[3.2rem] font-black leading-[0.95] mb-4 tracking-[-0.06em]">AuralithBit<br /><span className="text-indigo-100">Excellence.</span></h2>
-              <p className="text-indigo-100/85 text-lg font-medium leading-relaxed max-w-[17rem]">
+              <h2 className="text-3xl xl:text-[2.8rem] font-black leading-[0.95] mb-3 tracking-[-0.06em]">AuralithBit<br /><span className="text-indigo-100">Excellence.</span></h2>
+              <p className="text-indigo-100/85 text-base xl:text-lg font-medium leading-relaxed max-w-[16rem]">
                 Empowering technical minds and global businesses with precision engineering.
               </p>
             </div>
 
-            <div className="relative z-10 space-y-4 mt-6">
+            <div className="relative z-10 space-y-4 mt-4">
               <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.22em] text-indigo-100">
                 <div className="w-2 h-2 rounded-full bg-cyan-300 animate-pulse" />
                 Applications Open
               </div>
               <div className="space-y-3">
                 {content.benefits.map((txt) => (
-                  <div key={txt} className="flex items-center gap-3 text-base font-medium text-white/90">
+                  <div key={txt} className="flex items-center gap-3 text-sm xl:text-base font-medium text-white/90">
                     <CheckCircle className="w-4 h-4 text-cyan-300 shrink-0" />
                     {txt}
                   </div>
@@ -162,69 +162,69 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
             </div>
           </div>
 
-          <div className="col-span-full md:col-span-1 bg-[#f5f7fb] p-5 sm:p-6 lg:p-7 flex flex-col justify-center overflow-y-auto">
+          <div className="col-span-full md:col-span-1 bg-[#f5f7fb] p-3.5 sm:p-5 lg:p-6 flex flex-col justify-center overflow-y-auto">
             {step === 'form' ? (
               <div className="animate-in fade-in slide-in-from-right-4 duration-500">
-                <div className="mb-4 sm:mb-5">
-                  <h3 className="text-[1.7rem] sm:text-[2rem] font-black text-slate-900 tracking-[-0.04em] leading-none">{content.title}</h3>
-                  <p className="text-slate-500 text-xs sm:text-sm font-medium mt-1.5">{content.subtitle}</p>
+                <div className="mb-2.5 sm:mb-3">
+                  <h3 className="text-[1.4rem] sm:text-[1.8rem] lg:text-[2rem] font-black text-slate-900 tracking-[-0.04em] leading-none">{content.title}</h3>
+                  <p className="text-slate-500 text-[10px] sm:text-xs font-medium mt-1">{content.subtitle}</p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    <div className="space-y-1.5">
-                      <label className="text-[10px] sm:text-[11px] font-black text-slate-500 uppercase tracking-[0.22em] ml-1">Full Name</label>
+                <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                    <div className="space-y-1">
+                      <label className="text-[9px] sm:text-[10px] font-black text-slate-500 uppercase tracking-[0.18em] ml-1">Full Name</label>
                       <div className="relative">
-                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                        <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
                         <input 
                           required
                           type="text" 
                           value={formData.name}
                           onChange={(e) => setFormData({...formData, name: e.target.value})}
                           placeholder="Alex Johnson"
-                          className="w-full pl-11 pr-3 py-3 bg-white border border-slate-200 rounded-xl shadow-[0_2px_0_rgba(15,23,42,0.02)] focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-sm font-medium text-slate-700 placeholder:text-slate-400"
+                          className="w-full pl-9 pr-2.5 py-2.5 bg-white border border-slate-200 rounded-lg shadow-[0_2px_0_rgba(15,23,42,0.02)] focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-sm font-medium text-slate-700 placeholder:text-slate-400"
                         />
                       </div>
                     </div>
-                    <div className="space-y-1.5">
-                      <label className="text-[10px] sm:text-[11px] font-black text-slate-500 uppercase tracking-[0.22em] ml-1">Phone Number</label>
+                    <div className="space-y-1">
+                      <label className="text-[9px] sm:text-[10px] font-black text-slate-500 uppercase tracking-[0.18em] ml-1">Phone Number</label>
                       <div className="relative">
-                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                        <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
                         <input 
                           required
                           type="tel" 
                           value={formData.phone}
                           onChange={(e) => setFormData({...formData, phone: e.target.value})}
                           placeholder="+977 9800000000"
-                          className="w-full pl-11 pr-3 py-3 bg-white border border-slate-200 rounded-xl shadow-[0_2px_0_rgba(15,23,42,0.02)] focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-sm font-medium text-slate-700 placeholder:text-slate-400"
+                          className="w-full pl-9 pr-2.5 py-2.5 bg-white border border-slate-200 rounded-lg shadow-[0_2px_0_rgba(15,23,42,0.02)] focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-sm font-medium text-slate-700 placeholder:text-slate-400"
                         />
                       </div>
                     </div>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] sm:text-[11px] font-black text-slate-500 uppercase tracking-[0.22em] ml-1">Email Address</label>
+                  <div className="space-y-1">
+                    <label className="text-[9px] sm:text-[10px] font-black text-slate-500 uppercase tracking-[0.18em] ml-1">Email Address</label>
                     <div className="relative">
-                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
                       <input 
                         required
                         type="email" 
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                         placeholder="name@company.com"
-                        className="w-full pl-11 pr-3 py-3 bg-white border border-slate-200 rounded-xl shadow-[0_2px_0_rgba(15,23,42,0.02)] focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-sm font-medium text-slate-700 placeholder:text-slate-400"
+                        className="w-full pl-9 pr-2.5 py-2.5 bg-white border border-slate-200 rounded-lg shadow-[0_2px_0_rgba(15,23,42,0.02)] focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-sm font-medium text-slate-700 placeholder:text-slate-400"
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] sm:text-[11px] font-black text-slate-500 uppercase tracking-[0.22em] ml-1">{content.selectionLabel}</label>
+                  <div className="space-y-1">
+                    <label className="text-[9px] sm:text-[10px] font-black text-slate-500 uppercase tracking-[0.18em] ml-1">{content.selectionLabel}</label>
                     <div className="relative">
-                      <BookOpen className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                      <BookOpen className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
                       <select 
                         value={formData.selection}
                         onChange={(e) => setFormData({...formData, selection: e.target.value})}
-                        className="w-full pl-11 pr-9 py-3 bg-white border border-slate-200 rounded-xl shadow-[0_2px_0_rgba(15,23,42,0.02)] focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-sm font-bold text-slate-700 appearance-none"
+                        className="w-full pl-9 pr-8 py-2.5 bg-white border border-slate-200 rounded-lg shadow-[0_2px_0_rgba(15,23,42,0.02)] focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-sm font-bold text-slate-700 appearance-none"
                       >
                         {content.options.map(opt => <option key={opt}>{opt}</option>)}
                       </select>
@@ -232,15 +232,15 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
                   </div>
 
                   {content.extraLabel && (
-                    <div className="space-y-1.5 animate-in fade-in slide-in-from-top-2">
-                      <label className="text-[10px] sm:text-[11px] font-black text-slate-500 uppercase tracking-[0.22em] ml-1">{content.extraLabel}</label>
+                    <div className="space-y-1 animate-in fade-in slide-in-from-top-2">
+                      <label className="text-[9px] sm:text-[10px] font-black text-slate-500 uppercase tracking-[0.18em] ml-1">{content.extraLabel}</label>
                       <div className="relative">
                         {type === 'internship' ? (
-                          <LinkIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                          <LinkIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
                         ) : type === 'solution' ? (
-                          <Building className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                          <Building className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
                         ) : (
-                          <Rocket className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                          <Rocket className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
                         )}
                         <input 
                           required
@@ -248,21 +248,21 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
                           value={formData.extra}
                           onChange={(e) => setFormData({...formData, extra: e.target.value})}
                           placeholder={content.extraPlaceholder}
-                          className="w-full pl-11 pr-3 py-3 bg-white border border-slate-200 rounded-xl shadow-[0_2px_0_rgba(15,23,42,0.02)] focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-sm font-medium text-slate-700 placeholder:text-slate-400"
+                          className="w-full pl-9 pr-2.5 py-2.5 bg-white border border-slate-200 rounded-lg shadow-[0_2px_0_rgba(15,23,42,0.02)] focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-sm font-medium text-slate-700 placeholder:text-slate-400"
                         />
                       </div>
                     </div>
                   )}
 
-                  <div className="pt-2">
+                  <div className="pt-1.5">
                     <button 
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-[#4f46e5] via-[#5b53d7] to-[#7c3aed] text-white py-3.5 rounded-xl font-black text-xl flex items-center justify-center gap-2 hover:shadow-[0_18px_40px_rgba(79,70,229,0.28)] transition-all active:scale-[0.99] disabled:opacity-70 group"
+                      className="w-full bg-gradient-to-r from-[#4f46e5] via-[#5b53d7] to-[#7c3aed] text-white py-3 rounded-lg font-black text-lg flex items-center justify-center gap-2 hover:shadow-[0_18px_40px_rgba(79,70,229,0.28)] transition-all active:scale-[0.99] disabled:opacity-70 group"
                     >
                       {isSubmitting ? "Processing Request..." : "Submit Application"}
                       {!isSubmitting && <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                     </button>
-                    <p className="text-[9px] sm:text-[10px] text-center text-slate-400 mt-3 font-bold uppercase tracking-[0.3em]">
+                    <p className="text-[8px] sm:text-[9px] text-center text-slate-400 mt-2 font-bold uppercase tracking-[0.25em]">
                       AuralithBit • Secure Data Transmission
                     </p>
                   </div>
