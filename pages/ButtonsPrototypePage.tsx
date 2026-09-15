@@ -236,7 +236,7 @@ const ButtonsPrototypePage: React.FC<ButtonsPrototypePageProps> = ({ onNavigate,
 
           {/* 3️⃣ Full Width Interaction Test */}
           <div className="mt-20">
-            <div className="bg-primary-gradient rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-indigo-500/30">
+            <div className="site-cta">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
               <div className="relative z-10 space-y-8">
                 <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">

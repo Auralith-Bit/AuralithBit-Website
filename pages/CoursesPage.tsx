@@ -560,7 +560,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
           {/* 7️⃣ Final CTA Banner */}
           <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="bg-primary-gradient rounded-[3rem] p-16 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-indigo-500/30">
+              <div className="site-cta">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
                 <div className="relative z-10 space-y-10">
                   <div className="inline-flex p-4 rounded-2xl bg-white/20 backdrop-blur-md mb-2">

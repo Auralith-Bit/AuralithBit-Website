@@ -46,6 +46,29 @@
     background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
   }
 
+  /* Site-wide card and CTA utilities to keep visual language consistent */
+  .site-card {
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .site-cta {
+    background: linear-gradient(135deg, #4f46e5 0%, #a855f7 100%);
+    border-radius: 1.75rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(79,70,229,0.12), 0 8px 20px rgba(15,23,42,0.06);
+  }
+
+  @media (min-width: 768px) {
+    .site-cta { padding: 4rem 3rem; }
+  }
+
   .snap-x {
     scroll-snap-type: x mandatory;
   }
