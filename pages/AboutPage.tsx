@@ -155,30 +155,28 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="flex justify-center">
-              <div className="bg-white rounded-[1rem] overflow-hidden border border-slate-100 shadow-lg w-full max-w-xs">
-                <img
-                  src={ceo.image}
-                  alt={ceo.name}
-                  className="w-full h-80 sm:h-96 object-cover"
-                />
-                <div className="p-5 text-center">
-                  <h4 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">{ceo.name}</h4>
+              <div className="flex flex-col items-center bg-white rounded-2xl p-6 border border-slate-100 shadow-lg max-w-xs w-full">
+                <div className="w-40 h-40 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-white shadow-inner">
+                  <img src={ceo.image} alt={ceo.name} className="w-full h-full object-cover" />
+                </div>
+                <div className="text-center mt-4">
+                  <h4 className="text-xl sm:text-2xl font-extrabold text-slate-900">{ceo.name}</h4>
                   <p className="text-xs sm:text-sm text-indigo-600 uppercase tracking-widest mt-1">{ceo.role}</p>
                 </div>
               </div>
             </div>
 
-            <div>
-              <div className="bg-white p-8 rounded-[1rem] border border-slate-100 shadow-sm">
-                <h4 className="text-lg sm:text-xl font-black text-slate-900 mb-3">About Our CEO</h4>
+            <div className="flex items-center">
+              <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm w-full">
+                <h4 className="text-xl sm:text-2xl font-black text-slate-900 mb-4">About Our CEO</h4>
                 <p className="text-slate-600 font-medium leading-relaxed mb-3">
                   Aakriti leads AuralithBit with a clear focus on bridging education and industry. She prioritizes hands-on, project-based learning and client-focused solutions so students graduate with practical skills and workplace confidence.
                 </p>
-                <p className="text-slate-600 font-medium leading-relaxed">
-                  Under her leadership, the institute partners with real clients to give learners exposure to production workflows and delivers enterprise-grade digital solutions that help businesses scale.
+                <p className="text-slate-600 font-medium leading-relaxed mb-4">
+                  Under her leadership, the institute partners with real clients to give learners exposure to production workflows and delivers enterprise-grade digital solutions that help businesses scale. Her approach blends mentorship, practical experience, and a strong industry network.
                 </p>
-                <div className="mt-6 flex gap-3">
-                  <a href="#" className="inline-flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition">
+                <div className="mt-4">
+                  <a href="#" className="inline-flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition mr-3">
                     <Linkedin className="w-4 h-4" /> Connect
                   </a>
                   <a href="#" className="inline-flex items-center gap-2 bg-white text-slate-700 px-4 py-2 rounded-lg text-sm font-semibold border border-slate-200 hover:border-teal-500 hover:text-teal-600 transition">

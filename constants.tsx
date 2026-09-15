@@ -94,7 +94,7 @@ export const COURSES: Course[] = [
     originalPrice: 'NPR 45,000',
     rating: 4.8,
     reviewsCount: 18,
-    instructors: [instructors.akas, instructors.anjali],
+    instructors: [instructors.anjali],
     learningOutcomes: ['Master industry-standard tools', 'Understand core principles', 'Deploy applications', 'Build real-world projects', 'Collaborate in teams', 'Best coding practices'],
     curriculum: [
       { title: 'Module 1: Frontend with React', duration: '4 Weeks', topics: ['React Basics', 'Components', 'State Management'] },
@@ -136,7 +136,7 @@ export const COURSES: Course[] = [
     originalPrice: 'NPR 38,000',
     rating: 4.7,
     reviewsCount: 10,
-    instructors: [instructors.akas, instructors.aakriti],
+    instructors: [instructors.akas],
     learningOutcomes: ['Manual Testing', 'Automated Testing', 'Test Planning', 'Bug Tracking', 'Performance Testing', 'Agile Testing'],
     curriculum: [
       { title: 'Module 1: Testing Fundamentals', duration: '3 Weeks', topics: ['SDLC', 'Testing Types', 'Test Cases'] },
