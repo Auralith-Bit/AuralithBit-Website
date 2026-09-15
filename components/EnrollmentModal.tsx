@@ -117,14 +117,14 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[110] flex items-center justify-center p-3 sm:p-4">
+    <div className="fixed inset-0 z-[110] flex items-start justify-center overflow-y-auto p-3 sm:p-4 pt-20 sm:pt-24">
       {/* Overlay */}
       <div 
         className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-300" 
         onClick={onClose}
       />
       
-      <div className="relative w-full max-w-[1280px] max-h-[95vh] sm:max-h-[90vh] bg-white rounded-[2rem] shadow-[0_30px_80px_rgba(79,70,229,0.18)] overflow-hidden animate-in zoom-in-95 slide-in-from-bottom-10 duration-500 flex flex-col">
+      <div className="relative w-full max-w-[980px] max-h-[78vh] sm:max-h-[82vh] bg-white rounded-[2rem] shadow-[0_30px_80px_rgba(79,70,229,0.18)] overflow-hidden animate-in zoom-in-95 slide-in-from-bottom-10 duration-500 flex flex-col">
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 sm:top-5 sm:right-5 z-50 p-3 sm:p-4 rounded-full bg-slate-200/90 hover:bg-slate-300 shadow-lg transition-all text-slate-700 hover:text-slate-900 hover:scale-110 active:scale-95"
