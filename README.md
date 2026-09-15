@@ -35,25 +35,32 @@ We are a dedicated team of four professionals:
 
 Current course offerings with Nepalese Rupee (NPR) pricing — note: course prices are capped at NPR 20,000 on this site.
 
-- **UI/UX Designing** - NPR 20,000 (2.5 Months)
-- **MERN Stack Development** - NPR 20,000 (3 Months)
-- **Graphic Designing** - NPR 20,000 (2 Months)
+- **UI/UX Designing** - NPR 18,000 (2.5 Months)
+- **MERN Stack Development** - NPR 25,000 (3 Months)
+- **Graphic Designing** - NPR 15,000 (2 Months)
 - **Quality Assurance (QA)** - NPR 20,000 (2.5 Months)
-- **Web Designing** - NPR 20,000 (2 Months)
-- **Digital Marketing** - NPR 20,000 (2.5 Months)
-- **Python Programming** - NPR 20,000 (3 Months)
-- **Office Package** - NPR 15,000 (1.5 Months)
+- **Web Designing** - NPR 18,000 (2 Months)
+- **Digital Marketing** - NPR 22,000 (2.5 Months)
+- **Python Programming** - NPR 25,000 (3 Months)
+- **Office Package** - NPR 12,000 (1.5 Months)
 
 ---
 
 ## 📋 Features & Benefits
-
+We are a dedicated team of professionals based in Bhairahawa, Lumbini Province, Nepal:
 - 📌 Experienced instructors from our dedicated team
-- 🔍 Project-based learning with real-world applications
-- 🤝 Career guidance & placement support
-- 💻 Hands-on labs and practical exercises
-- 📈 Industry-aligned curriculum
+- **Aakriti Bista** - Founder & CEO
+- **Anjali Bista** - Chief Technical Officer
+- **Supriya Dwivedi** - Head of Projects
+- **Akash Prasad Barai** - Technical Lead
 - 💰 Affordable Nepal-based pricing
+---
+
+## 📍 Location
+
+Lumbini Road, Bhairahawa, Rupandehi, Lumbini Province, Nepal
+
+---
 - 🎓 Offline, Online & Hybrid learning options
 
 ---
