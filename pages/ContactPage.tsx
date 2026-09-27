@@ -180,15 +180,7 @@ const ContactPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#f0f4f8] rounded-[3rem] p-1 border border-slate-100 shadow-inner overflow-hidden relative min-h-[500px] flex items-center justify-center group">
             <div className="absolute inset-0 z-0">
-               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14138.868019349883!2d83.43577317240398!3d27.50917614041187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399696667a969343%3A0x6734c5678996e123!2sLumbini%20Rd%2C%20Bhairahawa!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0, opacity: 0.8 }} 
-                allowFullScreen={true} 
-                loading="lazy" 
-                className="group-hover:opacity-100 transition-opacity duration-700"
-              ></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3538.806168646891!2d83.44822067525816!3d27.506402976298375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39969a3bcbbeb20f%3A0x674576f0ed5b2daa!2sMilan%20Chowk!5e0!3m2!1sne!2snp!4v1790496413623!5m2!1sne!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
 
             {/* Placeholder-style overlay matching the reference image */}
