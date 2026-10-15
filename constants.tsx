@@ -13,7 +13,7 @@ import {
   Palette,
   Briefcase
 } from 'lucide-react';
-import { Course, Solution, UpcomingClass, Testimonial, Stat, NavItem } from './types';
+import { Course, Solution, UpcomingClass, Testimonial, NavItem } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '#home', view: 'home' },
@@ -25,41 +25,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Contact', href: '#contact', view: 'contact' },
 ];
 
-const instructors = {
-  aakriti: {
-    name: 'Akash Prasad Barai',
-    role: 'UI/UX Designer',
-    avatar: '/team/Akas Barai.jpeg',
-    bio: 'Creative designer with expertise in user-centered design and modern prototyping tools.'
-  },
-  aakritiBista: {
-    name: 'Aakriti Bista',
-    role: 'Digital Marketing Specialist',
-    avatar: '/team/Aakriti Bista.jpeg',
-    bio: 'Marketing strategist with skills in SEO, social media, and digital campaigns.'
-  },
-  akas: {
-    name: 'Supriya Dwivedi',
-    role: 'Full Stack Developer',
-    avatar: '/team/Supriya Dwivedi.jpg',
-    bio: 'Experienced developer specializing in MERN stack and scalable web applications.'
-  },
-  anjali: {
-    name: 'Anjali Bista',
-    role: 'Graphic Designer',
-    avatar: '/team/Anjali Bista.jpg',
-    bio: 'Talented graphic designer with a passion for visual storytelling and branding.'
-  },
-  parwesh: {
-    name: 'Akash Prasad Barai',
-    role: 'QA Engineer',
-    avatar: '/team/Akas Barai.jpeg',
-    bio: 'Quality assurance expert focused on delivering bug-free software solutions.'
-  }
-};
-
-
-
 export const COURSES: Course[] = [
   {
     id: '1',
@@ -70,11 +35,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '2.5 Months',
     mode: 'Offline',
-    price: 'NPR 18,000',
-    originalPrice: 'NPR 35,000',
-    rating: 4.7,
-    reviewsCount: 12,
-    instructors: [instructors.aakriti, instructors.aakritiBista],
+    price: 'Contact for current fees',
     learningOutcomes: ['Design Thinking', 'Visual Hierarchy', 'Prototyping in Figma', 'User Testing', 'Wireframing', 'Usability Testing'],
     curriculum: [
       { title: 'Module 1: Design Fundamentals', duration: '2 Weeks', topics: ['Color Theory', 'Typography', 'Layout Principles'] },
@@ -91,11 +52,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '3 Months',
     mode: 'Hybrid',
-    price: 'NPR 25,000',
-    originalPrice: 'NPR 45,000',
-    rating: 4.8,
-    reviewsCount: 18,
-    instructors: [instructors.anjali],
+    price: 'Contact for current fees',
     learningOutcomes: ['Master industry-standard tools', 'Understand core principles', 'Deploy applications', 'Build real-world projects', 'Collaborate in teams', 'Best coding practices'],
     curriculum: [
       { title: 'Module 1: Frontend with React', duration: '4 Weeks', topics: ['React Basics', 'Components', 'State Management'] },
@@ -112,11 +69,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '2 Months',
     mode: 'Offline',
-    price: 'NPR 15,000',
-    originalPrice: 'NPR 30,000',
-    rating: 4.6,
-    reviewsCount: 15,
-    instructors: [instructors.anjali],
+    price: 'Contact for current fees',
     learningOutcomes: ['Adobe Creative Suite', 'Branding Design', 'Digital Illustration', 'Print Design', 'Color Theory', 'Composition'],
     curriculum: [
       { title: 'Module 1: Design Basics', duration: '2 Weeks', topics: ['Elements of Design', 'Color Theory', 'Typography'] },
@@ -133,11 +86,7 @@ export const COURSES: Course[] = [
     level: 'Intermediate',
     duration: '2.5 Months',
     mode: 'Online',
-    price: 'NPR 20,000',
-    originalPrice: 'NPR 38,000',
-    rating: 4.7,
-    reviewsCount: 10,
-    instructors: [instructors.akas],
+    price: 'Contact for current fees',
     learningOutcomes: ['Manual Testing', 'Automated Testing', 'Test Planning', 'Bug Tracking', 'Performance Testing', 'Agile Testing'],
     curriculum: [
       { title: 'Module 1: Testing Fundamentals', duration: '3 Weeks', topics: ['SDLC', 'Testing Types', 'Test Cases'] },
@@ -154,11 +103,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '2 Months',
     mode: 'Hybrid',
-    price: 'NPR 18,000',
-    originalPrice: 'NPR 32,000',
-    rating: 4.5,
-    reviewsCount: 14,
-    instructors: [instructors.akas],
+    price: 'Contact for current fees',
     learningOutcomes: ['HTML5 & CSS3', 'Responsive Design', 'JavaScript Basics', 'Web Accessibility', 'SEO Principles', 'Version Control'],
     curriculum: [
       { title: 'Module 1: HTML & CSS', duration: '3 Weeks', topics: ['HTML Structure', 'CSS Styling', 'Flexbox & Grid'] },
@@ -175,11 +120,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '2.5 Months',
     mode: 'Online',
-    price: 'NPR 22,000',
-    originalPrice: 'NPR 36,000',
-    rating: 4.8,
-    reviewsCount: 16,
-    instructors: [instructors.aakritiBista],
+    price: 'Contact for current fees',
     learningOutcomes: ['SEO & SEM', 'Social Media Marketing', 'Content Marketing', 'Email Marketing', 'Analytics', 'PPC Advertising'],
     curriculum: [
       { title: 'Module 1: Marketing Fundamentals', duration: '2 Weeks', topics: ['Digital Landscape', 'Target Audience', 'Marketing Strategy'] },
@@ -196,11 +137,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '3 Months',
     mode: 'Online',
-    price: 'NPR 25,000',
-    originalPrice: 'NPR 40,000',
-    rating: 4.9,
-    reviewsCount: 20,
-    instructors: [instructors.akas],
+    price: 'Contact for current fees',
     learningOutcomes: ['Python Syntax', 'Data Structures', 'Object-Oriented Programming', 'Libraries (Pandas, NumPy)', 'Web Scraping', 'Automation'],
     curriculum: [
       { title: 'Module 1: Python Basics', duration: '4 Weeks', topics: ['Syntax', 'Data Types', 'Control Flow'] },
@@ -217,11 +154,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '1.5 Months',
     mode: 'Offline',
-    price: 'NPR 12,000',
-    originalPrice: 'NPR 25,000',
-    rating: 4.4,
-    reviewsCount: 11,
-    instructors: [instructors.anjali],
+    price: 'Contact for current fees',
     learningOutcomes: ['Word Processing', 'Spreadsheet Management', 'Presentation Skills', 'Data Analysis in Excel', 'Collaboration Tools', 'Advanced Features'],
     curriculum: [
       { title: 'Module 1: Microsoft Word', duration: '2 Weeks', topics: ['Document Creation', 'Formatting', 'Mail Merge'] },
@@ -247,69 +180,24 @@ export const SOLUTIONS: Solution[] = [
   {
     id: '3',
     title: 'Cloud Security',
-    description: 'Hardened infrastructure and real-time monitoring to protect your digital assets.',
+    description: 'Discuss security requirements and cloud options for your project.',
     icon: <ShieldCheck className="w-8 h-8" />
   },
   {
     id: '4',
     title: 'Maintenance & Support',
-    description: '24/7 dedicated support to ensure your systems run smoothly and efficiently.',
+    description: 'Ongoing maintenance and support to help keep your systems running smoothly.',
     icon: <TrendingUp className="w-8 h-8" />
   }
 ];
 
-// Resolve instructor names from the COURSES array when possible so changes propagate
-const findInstructorFor = (title: string) => {
-  const match = COURSES.find((c) => title.includes(c.title) || c.title.includes(title) || title.toLowerCase().includes(c.title.toLowerCase()) );
-  if (match && match.instructors && match.instructors.length > 0) return match.instructors[0].name;
-  return undefined;
-};
+export const UPCOMING_CLASSES: UpcomingClass[] = [];
 
-export const UPCOMING_CLASSES: UpcomingClass[] = [
-  { id: '1', title: 'UI/UX Designing Fundamentals', date: 'Dec 3', time: '10:00 AM', instructor: findInstructorFor('UI/UX Designing') ?? 'Akash Prasad Barai' },
-  { id: '2', title: 'MERN Stack Introduction', date: 'Dec 5', time: '02:00 PM', instructor: findInstructorFor('MERN Stack') ?? 'Anjali Bista' },
-  { id: '3', title: 'Graphic Designing with Adobe', date: 'Dec 8', time: '09:00 AM', instructor: findInstructorFor('Graphic Designing') ?? 'Anjali Bista' },
-  { id: '4', title: 'Quality Assurance Basics', date: 'Dec 10', time: '11:00 AM', instructor: findInstructorFor('Quality Assurance') ?? 'Supriya Dwivedi' },
-  { id: '5', title: 'Web Designing Workshop', date: 'Dec 12', time: '01:00 PM', instructor: findInstructorFor('Web Designing') ?? 'Supriya Dwivedi' },
-  { id: '6', title: 'Digital Marketing Strategies', date: 'Dec 15', time: '03:00 PM', instructor: findInstructorFor('Digital Marketing') ?? 'Aakriti Bista' },
-  { id: '7', title: 'Python Programming', date: 'Dec 17', time: '10:00 AM', instructor: findInstructorFor('Python') ?? 'Supriya Dwivedi' },
-  { id: '8', title: 'Office Package Training', date: 'Dec 19', time: '09:00 AM', instructor: findInstructorFor('Office Package') ?? 'Anjali Bista' },
-];
-
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: '1',
-    name: 'Priyanka Sharma',
-    role: 'Full Stack Developer',
-    content: 'AuralithBit gave me real-world IT experience. The transition from student to professional was seamless thanks to their excellent mentorship.',
-    avatar: 'https://picsum.photos/id/64/100/100'
-  },
-  {
-    id: '2',
-    name: 'Sanjay Maharjan',
-    role: 'Startup Founder',
-    content: 'Professional delivery and innovative digital solutions. They transformed our legacy system into a high-performance modern app. Highly recommended!',
-    avatar: 'https://picsum.photos/id/91/100/100'
-  },
-  {
-    id: '3',
-    name: 'Priya Sharma',
-    role: 'UI/UX Designer',
-    content: 'The curriculum is world-class. I learned tools and techniques that I use every day in my current role at a tech company.',
-    avatar: 'https://picsum.photos/id/102/100/100'
-  }
-];
-
-export const STATS: Stat[] = [
-  { label: 'Trained Learners', value: '75+' },
-  { label: 'Projects Delivered', value: '12+' },
-  { label: 'Expert Mentors', value: '4+' },
-  { label: 'Industry Partners', value: '8+' }
-];
+export const TESTIMONIALS: Testimonial[] = [];
 
 export const WHY_CHOOSE_US = [
-  { title: 'Hands-on Training', description: 'Learn by building real projects with expert guidance.', icon: <Users className="w-6 h-6" /> },
-  { title: 'Real-world Experience', description: 'Work on live client projects from day one.', icon: <Globe className="w-6 h-6" /> },
-  { title: 'Career Support', description: 'Dedicated guidance for your tech career path.', icon: <TrendingUp className="w-6 h-6" /> },
-  { title: 'Modern Skills', description: 'Master cutting-edge tech stacks and tools.', icon: <Lightbulb className="w-6 h-6" /> }
+  { title: 'Course Options', description: 'Explore courses in design, development, marketing, and productivity.', icon: <Users className="w-6 h-6" /> },
+  { title: 'Learning Modes', description: 'Course listings include online, offline, and hybrid formats.', icon: <Globe className="w-6 h-6" /> },
+  { title: 'Internship Tracks', description: 'Apply separately to the available internship tracks.', icon: <TrendingUp className="w-6 h-6" /> },
+  { title: 'Digital Projects', description: 'See examples of software and digital products in our portfolio.', icon: <Lightbulb className="w-6 h-6" /> }
 ];

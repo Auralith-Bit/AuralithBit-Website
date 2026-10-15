@@ -17,8 +17,8 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate, onOpenEnrollment }) => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 xs:mb-8 sm:mb-12 lg:mb-16 gap-2 xs:gap-3 sm:gap-4 lg:gap-6">
           <div className="max-w-xl">
             <h2 className="text-[9px] xs:text-[10px] sm:text-xs font-bold tracking-widest text-indigo-600 uppercase mb-1.5 xs:mb-2 sm:mb-3 lg:mb-4">Master Your Craft</h2>
-            <h3 className="text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-slate-900 leading-tight">Flagship Training Programs</h3>
-            <p className="text-[11px] xs:text-xs sm:text-sm lg:text-lg text-slate-600 mt-1.5 xs:mt-2 sm:mt-3 lg:mt-4">Accelerate your career with industry-vetted courses designed to make you hireable in the global market.</p>
+            <h3 className="text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-slate-900 leading-tight">Courses</h3>
+            <p className="text-[11px] xs:text-xs sm:text-sm lg:text-lg text-slate-600 mt-1.5 xs:mt-2 sm:mt-3 lg:mt-4">Browse the courses currently listed by AuralithBit. Contact us to confirm fees, schedules, and enrollment availability.</p>
           </div>
           <button 
             onClick={() => onNavigate('courses')}
@@ -47,7 +47,7 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate, onOpenEnrollment }) => {
                   onClick={(e) => { e.stopPropagation(); onOpenEnrollment(); }}
                   className="bg-primary-gradient text-white px-2 xs:px-2.5 sm:px-3 lg:px-4 py-1 xs:py-1.5 sm:py-2 rounded-full text-[8px] xs:text-[9px] sm:text-[10px] font-bold hover:shadow-md transition-all active:scale-95"
                 >
-                  Enrolling Now
+                  Ask About Course
                 </button>
                 <div className="w-5 h-5 xs:w-6 sm:w-7 lg:w-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all">
                   <ArrowRight className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 lg:w-4" />

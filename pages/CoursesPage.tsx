@@ -2,12 +2,10 @@ import React, { useState, useMemo } from 'react';
 import { 
   Search, 
   ArrowRight, 
-  Star, 
   Clock, 
   Filter, 
   ChevronRight,
   ChevronDown,
-  Play,
   CheckCircle2,
   Users,
   Briefcase,
@@ -16,11 +14,10 @@ import {
   Target,
   TrendingUp,
   Layers,
-  Quote,
   Sparkles,
   Loader2
 } from 'lucide-react';
-import { COURSES, TESTIMONIALS } from '../constants';
+import { COURSES } from '../constants';
 import GlassHero from '../components/GlassHero';
 import { View, Course } from '../types';
 
@@ -48,21 +45,10 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
       return matchesCategory && matchesLevel && matchesSearch;
     });
 
-    const priceToNumber = (price: string) => Number(price.replace(/[^0-9]/g, '')) || 0;
-
     const sorted = [...filtered];
     switch (sortBy) {
-      case 'Price: Low to High':
-        sorted.sort((a, b) => priceToNumber(a.price) - priceToNumber(b.price));
-        break;
-      case 'Price: High to Low':
-        sorted.sort((a, b) => priceToNumber(b.price) - priceToNumber(a.price));
-        break;
-      case 'Highest Rated':
-        sorted.sort((a, b) => b.rating - a.rating);
-        break;
-      case 'Most Popular':
-        sorted.sort((a, b) => b.reviewsCount - a.reviewsCount);
+      case 'Name: A to Z':
+        sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
       default:
         break; // Relevance = original catalog order
@@ -137,23 +123,23 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
 
   const courseBenefits = [
     { 
-      title: 'Real-world Project Exposure', 
-      desc: 'Build products for actual clients as part of your final capstone phase.', 
+      title: 'Course Topics',
+      desc: 'Review course topics and learning outcomes before applying.',
       icon: <Target className="w-6 h-6" /> 
     },
     { 
-      title: 'Career-Oriented Curriculum', 
-      desc: 'Syllabus designed by industry leaders to meet current global demand.', 
+      title: 'Learning Modes',
+      desc: 'Check the listed online, offline, or hybrid mode for each course.',
       icon: <TrendingUp className="w-6 h-6" /> 
     },
     { 
-      title: 'Experienced Instructors', 
-      desc: 'Learn from senior engineers currently working in top-tier tech firms.', 
+      title: 'Fees & Schedules',
+      desc: 'Contact AuralithBit to confirm current fees and schedules.',
       icon: <Layers className="w-6 h-6" /> 
     },
     { 
-      title: 'Internship Opportunities', 
-      desc: 'Top graduates receive direct entry into our corporate internship program.', 
+      title: 'Internship Program',
+      desc: 'Internship applications are available separately from course enrollment.',
       icon: <Briefcase className="w-6 h-6" /> 
     }
   ];
@@ -164,7 +150,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
       <div className="mb-8 sm:mb-12">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 mb-2 sm:mb-4 tracking-tight">Explore Our Programs</h2>
         <p className="text-slate-500 text-sm sm:text-base lg:text-lg max-w-3xl font-medium">
-          Discover courses designed by industry experts to help you master new skills and advance your career.
+          Browse the courses currently listed by AuralithBit. Contact us to confirm current fees, schedules, and enrollment availability.
         </p>
       </div>
 
@@ -252,10 +238,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                   className="appearance-none bg-transparent pr-5 text-xs sm:text-sm font-bold text-slate-900 focus:outline-none cursor-pointer"
                 >
                   <option>Relevance</option>
-                  <option>Price: Low to High</option>
-                  <option>Price: High to Low</option>
-                  <option>Highest Rated</option>
-                  <option>Most Popular</option>
+                  <option>Name: A to Z</option>
                 </select>
                 <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-slate-900 absolute right-0 pointer-events-none" />
               </div>
@@ -289,11 +272,6 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                     }`}>
                       {course.level}
                     </span>
-                    <div className="flex items-center gap-1">
-                      <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-yellow-400 text-yellow-400" />
-                      <span className="text-[10px] sm:text-xs font-bold text-slate-900">{course.rating}</span>
-                      <span className="text-[9px] sm:text-[10px] text-slate-400">({course.reviewsCount})</span>
-                    </div>
                   </div>
 
                   <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 sm:mb-4 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
@@ -354,7 +332,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                 {course.title}
               </h1>
               <p className="text-base text-slate-600 leading-relaxed font-medium">
-                {course.description} Focused on professional agility and production-ready implementation for global markets.
+                {course.description}
               </p>
               
               <div className="flex flex-wrap items-center gap-6 pt-2">
@@ -369,11 +347,6 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                 <div className="flex items-center gap-2 text-[13px] font-medium text-slate-500">
                   <TrendingUp className="w-4 h-4 text-blue-600" />
                   {course.level}
-                </div>
-                <div className="flex items-center gap-2 text-[13px] font-medium text-slate-500">
-                  <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  <span className="font-bold text-slate-900">{course.rating}</span>
-                  <span className="text-slate-400">({course.reviewsCount} reviews)</span>
                 </div>
               </div>
             </div>
@@ -426,32 +399,12 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
               </div>
             </div>
 
-            <div className="glass-panel rounded-2xl p-6 sm:p-10">
-              <h2 className="text-2xl font-black text-slate-900 mb-8">Your Instructors</h2>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {course.instructors.map((instructor, index) => (
-                  <div key={index} className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-                    <img src={instructor.avatar} className="w-20 h-20 rounded-full object-cover ring-4 ring-slate-50 shadow-md" alt={instructor.name} />
-                    <div className="space-y-1">
-                      <h4 className="text-xl font-bold text-slate-900">{instructor.name}</h4>
-                      <p className="text-blue-600 font-bold text-xs">{instructor.role}</p>
-                      <p className="text-slate-500 text-sm leading-relaxed max-w-lg mt-2">{instructor.bio}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
             <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-xl">
-              <div className="h-56 relative group">
+              <div className="h-56 relative">
                 <img src={`https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800&sig=${course.id}`} className="w-full h-full object-cover" alt={course.title} />
-                <div className="absolute inset-0 bg-slate-900/30 flex items-center justify-center cursor-pointer active:brightness-90 transition-all" onClick={() => setFeedback("Loading intro video...")}>
-                   <div className="bg-white p-4 rounded-full shadow-lg group-hover:scale-110 transition-transform">
-                      <Play className="w-6 h-6 text-blue-600 fill-current ml-0.5" />
-                   </div>
-                </div>
               </div>
               
               <div className="p-8 space-y-6">
@@ -467,15 +420,11 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                     disabled={isDownloading}
                     className="w-full bg-white border border-blue-600 text-blue-600 py-4 rounded-xl font-black text-sm hover:bg-blue-50 transition-all active:scale-95 disabled:opacity-50"
                   >
-                    {isDownloading ? 'Downloading...' : 'Download Brochure'}
+                    {isDownloading ? 'Downloading...' : 'Download Syllabus'}
                   </button>
                 </div>
 
-                <div className="space-y-3 pt-4 text-center text-[11px] font-bold text-slate-400 tracking-wider">
-                  <p>30-Day Money-Back Guarantee</p>
-                  <p>Full Lifetime Access</p>
-                  <p>Certificate of Completion</p>
-                </div>
+                <p className="border-t border-slate-100 pt-4 text-center text-xs leading-5 text-slate-500">Contact us to confirm current fees, schedule, and enrollment details.</p>
               </div>
             </div>
 
@@ -527,34 +476,6 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                     </div>
                   ))}
                </div>
-            </div>
-          </section>
-
-          {/* 6️⃣ Testimonials Section */}
-          <section className="py-24 bg-slate-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16 space-y-4">
-                <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.4em]">Student Success</h2>
-                <h3 className="text-4xl font-black text-slate-900 tracking-tight">Hear from the Global Community</h3>
-              </div>
-              
-              <div className="grid lg:grid-cols-3 gap-8">
-                {TESTIMONIALS.map((t) => (
-                  <div key={t.id} className="glass-panel p-6 sm:p-10 rounded-3xl flex flex-col justify-between transition-all duration-500 group active:scale-[0.98] cursor-default">
-                    <div>
-                      <Quote className="w-10 h-10 text-blue-600/10 mb-6 group-hover:text-blue-600/20 transition-colors" />
-                      <p className="text-slate-600 text-lg leading-relaxed italic font-medium">"{t.content}"</p>
-                    </div>
-                    <div className="flex items-center gap-4 mt-10 pt-8 border-t border-slate-50">
-                      <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full ring-4 ring-white shadow-sm" />
-                      <div>
-                        <h4 className="font-bold text-slate-900">{t.name}</h4>
-                        <p className="text-[10px] text-blue-600 font-black uppercase tracking-widest">{t.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </section>
 

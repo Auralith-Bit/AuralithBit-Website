@@ -62,7 +62,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </span>
             </div>
             <p className="text-slate-500 leading-relaxed max-w-sm font-medium text-[11px] xs:text-sm">
-              Designing with vision, developing with passion, and delivering with excellence. A growing leader in IT education and solutions based in Bhairahawa, Nepal.
+              IT education and digital solutions from Bhairahawa, Nepal.
             </p>
             <div className="flex gap-2.5 xs:gap-3 sm:gap-4">
               {socialLinks.map(({ Icon, bgColor, label, href }, i) => (

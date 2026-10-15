@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CheckCircle2, Award, Briefcase, GraduationCap } from 'lucide-react';
+import { CheckCircle2, Award, Briefcase, ClipboardList } from 'lucide-react';
 import { View } from '../types';
 
 interface InternshipProps {
@@ -10,9 +10,9 @@ interface InternshipProps {
 
 const Internship: React.FC<InternshipProps> = ({ onOpenEnrollment }) => {
   const features = [
-    { title: 'Industry Mentorship', icon: <Award className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />, desc: 'Learn directly from seniors.' },
-    { title: 'Live Client Work', icon: <Briefcase className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />, desc: 'Contribute to actual products.' },
-    { title: 'Job Assurance', icon: <GraduationCap className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />, desc: 'Direct pathway to placement.' },
+    { title: 'Guided Learning', icon: <Award className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />, desc: 'Build skills in your selected track.' },
+    { title: 'Project Practice', icon: <Briefcase className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />, desc: 'Apply your skills through practical work.' },
+    { title: 'Application Process', icon: <ClipboardList className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />, desc: 'Ask about current opportunities.' },
   ];
 
   return (
@@ -26,17 +26,17 @@ const Internship: React.FC<InternshipProps> = ({ onOpenEnrollment }) => {
           <div className="relative z-10 grid lg:grid-cols-2 gap-6 xs:gap-8 lg:gap-16 items-center">
             <div className="space-y-5 xs:space-y-6 lg:space-y-8">
               <div className="inline-block px-2 xs:px-3 sm:px-4 py-1 xs:py-1.5 sm:py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-[9px] xs:text-[10px] sm:text-xs font-bold uppercase tracking-widest">
-                Career Fast-Track
+                Internship Program
               </div>
               <h2 className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white leading-tight">
                 Bridge the Gap with our <span className="text-teal-400">Structured Internship</span>
               </h2>
               <p className="text-slate-400 text-[11px] xs:text-sm sm:text-base lg:text-lg leading-relaxed">
-                Step out of the classroom and into the corporate world. Our internship program is designed to transform theoretical knowledge into battle-tested industry skills.
+                Explore internship tracks at AuralithBit and contact us to confirm current availability, requirements, and program details.
               </p>
               
               <div className="space-y-2 xs:space-y-3 sm:space-y-4">
-                {['Guaranteed 12-week intensive curriculum', 'Real-world project ownership', 'Letter of recommendation & Certification'].map(text => (
+                {['Tracks across design, development, and marketing', 'Send an internship inquiry', 'Ask us about current program details'].map(text => (
                   <div key={text} className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 text-slate-300 font-medium text-[11px] xs:text-xs sm:text-sm">
                     <CheckCircle2 className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-teal-400 shrink-0" />
                     {text}
@@ -62,10 +62,6 @@ const Internship: React.FC<InternshipProps> = ({ onOpenEnrollment }) => {
                   <p className="text-slate-400 text-[9px] xs:text-[10px] sm:text-sm">{feat.desc}</p>
                 </div>
               ))}
-              <div className="col-span-2 sm:col-span-1 bg-primary-gradient p-3.5 xs:p-5 sm:p-8 rounded-xl sm:rounded-3xl text-white flex flex-col justify-center items-center text-center">
-                <div className="text-xl xs:text-2xl sm:text-3xl font-bold mb-1 xs:mb-1 sm:mb-2">95%</div>
-                <div className="text-[9px] xs:text-[10px] sm:text-sm font-medium text-indigo-100">Conversion to Full-time Roles</div>
-              </div>
             </div>
           </div>
         </div>

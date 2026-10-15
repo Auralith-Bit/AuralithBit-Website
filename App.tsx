@@ -1,13 +1,11 @@
 import React, { useLayoutEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import UpcomingClasses from './components/UpcomingClasses';
 import About from './components/About';
 import Courses from './components/Courses';
 import Internship from './components/Internship';
 import Solutions from './components/Solutions';
 import WhyChooseUs from './components/WhyChooseUs';
-import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import EnrollmentModal from './components/EnrollmentModal';
@@ -49,14 +47,11 @@ const App: React.FC = () => {
       {currentView === 'home' ? (
         <>
           <Hero onNavigate={navigate} onOpenEnrollment={() => openEnrollment('course')} />
-          <UpcomingClasses onNavigate={navigate} onOpenEnrollment={() => openEnrollment('course')} />
           <About onNavigate={navigate} onOpenEnrollment={() => openEnrollment('course')} />
           <Courses onNavigate={navigate} onOpenEnrollment={() => openEnrollment('course')} />
           <Internship onNavigate={navigate} onOpenEnrollment={() => openEnrollment('internship')} />
           <Solutions onNavigate={navigate} onOpenEnrollment={() => openEnrollment('solution')} />
           <WhyChooseUs onNavigate={navigate} />
-          <Testimonials />
-
           {/* Final CTA Banner */}
           <section className="py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

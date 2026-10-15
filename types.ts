@@ -21,15 +21,6 @@ export interface Course {
   duration: string;
   mode: 'Hybrid' | 'Online' | 'Offline';
   price: string;
-  originalPrice?: string;
-  rating: number;
-  reviewsCount: number;
-  instructors: {
-    name: string;
-    role: string;
-    avatar: string;
-    bio: string;
-  }[];
   learningOutcomes: string[];
   curriculum: CourseModule[];
 }

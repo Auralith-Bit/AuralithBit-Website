@@ -138,29 +138,29 @@ const SolutionsPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment:
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             {/* Left Content */}
             <div className="lg:col-span-5 space-y-12">
-              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
-                Why Companies <span className="text-indigo-400">Trust</span> Us
+                <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+                How We <span className="text-indigo-400">Work</span>
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                 <div className="space-y-3">
                   <ShieldCheck className="w-7 h-7 text-teal-400" />
-                  <h4 className="text-white font-black text-lg">12+ Delivered</h4>
-                  <p className="text-slate-400 text-sm font-medium">Proven track record</p>
+                  <h4 className="text-white font-black text-lg">Project Planning</h4>
+                  <p className="text-slate-400 text-sm font-medium">Discuss goals and requirements</p>
                 </div>
                 <div className="space-y-3">
                   <Zap className="w-7 h-7 text-yellow-400" />
-                  <h4 className="text-white font-black text-lg">Modern Stack</h4>
-                  <p className="text-slate-400 text-sm font-medium">Clean, scalable code</p>
+                  <h4 className="text-white font-black text-lg">Design &amp; Development</h4>
+                  <p className="text-slate-400 text-sm font-medium">Scope depends on the project</p>
                 </div>
                 <div className="space-y-3">
                   <Clock className="w-7 h-7 text-blue-400" />
-                  <h4 className="text-white font-black text-lg">On-Time</h4>
-                  <p className="text-slate-400 text-sm font-medium">Reliable delivery</p>
+                  <h4 className="text-white font-black text-lg">Client Collaboration</h4>
+                  <p className="text-slate-400 text-sm font-medium">Plan details together</p>
                 </div>
                 <div className="space-y-3">
                   <Layers className="w-7 h-7 text-purple-400" />
-                  <h4 className="text-white font-black text-lg">Post-Support</h4>
-                  <p className="text-slate-400 text-sm font-medium">We grow with you</p>
+                  <h4 className="text-white font-black text-lg">Ongoing Support</h4>
+                  <p className="text-slate-400 text-sm font-medium">Support options by agreement</p>
                 </div>
               </div>
             </div>

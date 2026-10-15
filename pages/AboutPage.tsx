@@ -2,7 +2,6 @@ import React from 'react';
 import { CheckCircle2, Award, Globe, ArrowRight, Lightbulb, Shield, Linkedin, Mail } from 'lucide-react';
 import GlassHero from '../components/GlassHero';
 import { View } from '../types';
-import { STATS } from '../constants';
 
 const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () => void }> = ({ onOpenEnrollment }) => {
   const ceo = {
@@ -16,7 +15,7 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
       {/* 1️⃣ Glass Hero */}
       <GlassHero
         title={<>About <span className="text-gradient">AuralithBit</span></>}
-        subtitle={"Discover the nexus of technical mastery and industry delivery. We are more than an institute; we are the engine of your digital future."}
+        subtitle={"AuralithBit is an IT education and digital solutions provider based in Bhairahawa, Nepal."}
         image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000"
         ctaText="Learn More About Us"
         onCta={() => { document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' }); }}
@@ -47,22 +46,7 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
         </div>
       </section>
 
-      {/* 3️⃣ Stats Section */}
-      <section className="py-24 bg-slate-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary-gradient opacity-10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {STATS.map((stat, i) => (
-              <div key={i} className="text-center space-y-2">
-                <div className="text-5xl font-black text-white">{stat.value}</div>
-                <div className="text-xs font-bold text-indigo-300 uppercase tracking-widest">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4️⃣ Experience Excellence */}
+      {/* Experience */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -73,10 +57,10 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
                 </p>
                 <div className="space-y-4">
                   {[
-                    "Curriculum built on real client project feedback",
-                    "Mentorship from engineers currently in production",
-                    "A focus on scalability, security, and performance",
-                    "Structured pathways into high-growth corporate roles"
+                    "Courses cover design, development, marketing, and productivity",
+                    "Course listings include online, offline, and hybrid modes",
+                    "Internship tracks have a separate application path",
+                    "The portfolio presents software and digital project examples"
                   ].map((text, i) => (
                     <div key={i} className="flex items-center gap-4 group">
                       <div className="bg-teal-50 text-teal-500 p-1.5 rounded-full group-hover:bg-teal-500 group-hover:text-white transition-all">
@@ -97,9 +81,9 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
                 <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-[2.5rem] shadow-2xl border border-slate-100 hidden md:block">
                   <div className="flex items-center gap-4 mb-4">
                      <Award className="w-10 h-10 text-indigo-600" />
-                     <h4 className="font-black text-slate-900">Industry Leader</h4>
+                     <h4 className="font-black text-slate-900">Team collaboration</h4>
                   </div>
-                  <p className="text-sm text-slate-500 font-medium">Recognized for excellence in <br />technical delivery and training.</p>
+                  <p className="text-sm text-slate-500 font-medium">Practical learning and digital product development.</p>
                 </div>
              </div>
            </div>
@@ -157,12 +141,8 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
               </h4>
 
               <div className="mt-6 space-y-4 text-sm font-medium leading-7 text-slate-600 sm:text-base">
-                <p>
-                  Aakriti leads AuralithBit with a clear focus on bridging education and industry. She prioritizes hands-on, project-based learning and client-focused solutions so students graduate with practical skills and workplace confidence.
-                </p>
-                <p>
-                  Under her leadership, the institute partners with real clients to give learners exposure to production workflows and delivers enterprise-grade digital solutions that help businesses scale. Her approach blends mentorship, practical experience, and a strong industry network.
-                </p>
+                <p>Aakriti Bista is the Founder &amp; CEO of AuralithBit. The organization combines IT education with digital product and software services.</p>
+                <p>Explore the course catalog, internship tracks, and project portfolio to learn more about AuralithBit’s current offerings.</p>
               </div>
 
               <div className="mt-7 flex flex-col gap-3 border-t border-slate-200/80 pt-6 sm:flex-row">

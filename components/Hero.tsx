@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { STATS } from '../constants';
+import { ArrowRight, Briefcase, Sparkles } from 'lucide-react';
 import { View } from '../types';
 
 interface HeroProps {
@@ -50,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate, onOpenEnrollment }) => {
           </p>
 
           <div
-            className="animate-in fade-in slide-in-from-bottom-5 duration-500"
+            className="animate-in fade-in slide-in-from-bottom-5 duration-500 flex flex-col xs:flex-row gap-3"
             style={{ animationDelay: '240ms' }}
           >
             <button
@@ -60,27 +59,29 @@ const Hero: React.FC<HeroProps> = ({ onNavigate, onOpenEnrollment }) => {
               Join our Courses
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
+            <button
+              onClick={() => onNavigate('internship')}
+              className="bg-accent-gradient text-white px-7 sm:px-9 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl font-bold flex items-center justify-center gap-2 hover:shadow-2xl hover:shadow-teal-500/30 transition-all hover:-translate-y-1 active:scale-95 text-sm"
+            >
+              Explore Internships
+              <Briefcase className="w-4 h-4" />
+            </button>
           </div>
 
-          {/* Stats — light cards, kept as a quiet supporting row, not the main event */}
-          <div
-            className="animate-in fade-in slide-in-from-bottom-5 duration-500 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-4"
-            style={{ animationDelay: '320ms' }}
-          >
-            {STATS.map((stat, idx) => (
-              <div
-                key={idx}
-                className="bg-white/95 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white shadow-sm hover:shadow-md transition-all duration-300 group"
-              >
-                <div className="text-lg sm:text-xl lg:text-2xl font-extrabold text-indigo-700 group-hover:scale-110 transition-transform">
-                  {stat.value}
-                </div>
-                <div className="text-[9px] sm:text-[10px] font-bold text-slate-600 uppercase tracking-widest mt-1">
-                  {stat.label}
-                </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 pt-2 sm:pt-4">
+            {[
+              { value: '30', label: 'Trained Learners' },
+              { value: '14', label: 'Projects in Portfolio' },
+              { value: '8', label: 'Courses Listed' },
+              { value: '6', label: 'Internship Tracks' },
+            ].map((stat) => (
+              <div key={stat.label} className="rounded-2xl border border-white/70 bg-white/95 p-4 sm:p-5 shadow-lg shadow-slate-950/10 backdrop-blur-sm">
+                <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-indigo-700">{stat.value}</div>
+                <div className="mt-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] text-slate-600">{stat.label}</div>
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>

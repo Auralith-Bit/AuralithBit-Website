@@ -17,9 +17,9 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
           <div className="space-y-5 xs:space-y-6 lg:space-y-8">
             <div className="space-y-2 xs:space-y-3 sm:space-y-4">
               <h2 className="text-[9px] xs:text-[10px] sm:text-xs font-bold tracking-widest text-indigo-600 uppercase">Our Story</h2>
-              <h3 className="text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-slate-900">Your Global Partner in IT Excellence</h3>
+              <h3 className="text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-slate-900">IT Education & Digital Solutions</h3>
               <p className="text-[11px] xs:text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed">
-                AuralithBit is a premier nexus of innovation where cutting-edge technology meets world-class education. We bridge the gap between academic theory and industry reality through immersive learning and enterprise delivery.
+                AuralithBit is an IT education and digital solutions provider based in Bhairahawa, Nepal. The organization offers technology courses, internship tracks, and digital services.
               </p>
             </div>
 
@@ -42,13 +42,13 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
 
           <div className="relative mt-6 xs:mt-8 lg:mt-0">
             <div className="bg-slate-50 rounded-2xl sm:rounded-[2rem] lg:rounded-[3rem] p-4 xs:p-5 sm:p-8 lg:p-12 xl:p-16 border border-slate-100">
-              <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 mb-2 xs:mb-3 sm:mb-4 lg:mb-6">Why We Lead</h3>
+              <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 mb-2 xs:mb-3 sm:mb-4 lg:mb-6">What We Offer</h3>
               <div className="space-y-2 xs:space-y-3 sm:space-y-4 lg:space-y-6">
                 {[
-                  "Global standard curriculum updated monthly",
-                  "Direct mentorship from Fortune 500 engineers",
-                  "Live project integration with real clients",
-                  "Comprehensive career placement support"
+                  "Technology courses across design, development, and productivity",
+                  "Online, offline, and hybrid learning modes",
+                  "Internship tracks with a separate application process",
+                  "Digital project examples in our portfolio"
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-1.5 xs:gap-2 sm:gap-3 lg:gap-4">
                     <div className="bg-teal-100 text-teal-600 p-1 rounded-full mt-0.5">

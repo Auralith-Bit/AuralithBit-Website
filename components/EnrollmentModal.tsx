@@ -78,36 +78,36 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
     switch (type) {
       case 'internship':
         return {
-          title: 'Join Our Team',
+          title: 'Internship Inquiry',
           subtitle: 'Launch your career as an intern.',
           selectionLabel: 'Internship Track',
-          extraLabel: 'Portfolio / LinkedIn URL',
+          extraLabel: 'Portfolio / LinkedIn URL (optional)',
           extraPlaceholder: 'https://...',
           options: internshipOptions,
-          benefits: ["Real Client Projects", "Expert Mentorship", "Career Path Guidance"],
-          successMsg: "Our HR team will review your portfolio and contact you for an initial screening."
+          benefits: ["Select an internship track", "Share your contact details", "Ask about current availability"],
+          successMsg: "Your email application should open with these details. Please send it to complete your inquiry."
         };
       case 'solution':
         return {
-          title: 'Scale Your Business',
+          title: 'Project Inquiry',
           subtitle: 'Get a tailored enterprise solution.',
           selectionLabel: 'Service Interest',
           extraLabel: 'Company Name',
           extraPlaceholder: 'Your Business Name',
           options: ['Web Development', 'Mobile App Development', 'UI/UX Design', 'Digital Marketing', 'Custom Software'],
-          benefits: ["Scalable Architecture", "Hardened Security", "24/7 Priority Support"],
-          successMsg: "A solutions architect will call you within 24 hours to discuss your requirements."
+          benefits: ["Discuss your project scope", "Share your service needs", "Request a follow-up"],
+          successMsg: "Your email application should open with these details. Please send it to complete your inquiry."
         };
       default:
         return {
-          title: 'Quick Enrollment',
-          subtitle: 'Secure your spot in our next cohort.',
+          title: 'Course Inquiry',
+          subtitle: 'Send an inquiry about course enrollment.',
           selectionLabel: 'Select Program',
           extraLabel: 'Preferred Batch Time',
           extraPlaceholder: 'e.g., Morning, Evening, Weekend',
           options: courseOptions,
-          benefits: ["Industry Mentorship", "Live Project Access", "Job Placement Support"],
-          successMsg: "Check your email for the next steps and course orientation details."
+          benefits: ["Ask about course details", "Confirm current fees and schedule", "Request enrollment guidance"],
+          successMsg: "Your email application should open with these details. Please send it to complete your inquiry."
         };
     }
   };
@@ -149,7 +149,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
             <div className="relative z-10 space-y-4 mt-4">
               <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.22em] text-indigo-100">
                 <div className="w-2 h-2 rounded-full bg-cyan-300 animate-pulse" />
-                Applications Open
+                Send an Inquiry
               </div>
               <div className="space-y-3">
                 {content.benefits.map((txt) => (
@@ -243,7 +243,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
                           <Rocket className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
                         )}
                         <input 
-                          required
+                          required={type !== 'internship'}
                           type="text" 
                           value={formData.extra}
                           onChange={(e) => setFormData({...formData, extra: e.target.value})}
@@ -259,11 +259,11 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
                       disabled={isSubmitting}
                       className="w-full bg-gradient-to-r from-[#4f46e5] via-[#5b53d7] to-[#7c3aed] text-white py-3 rounded-lg font-black text-lg flex items-center justify-center gap-2 hover:shadow-[0_18px_40px_rgba(79,70,229,0.28)] transition-all active:scale-[0.99] disabled:opacity-70 group"
                     >
-                      {isSubmitting ? "Processing Request..." : "Submit Application"}
+                      {isSubmitting ? "Preparing Email Draft..." : "Open Email Draft"}
                       {!isSubmitting && <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                     </button>
                     <p className="text-[8px] sm:text-[9px] text-center text-slate-400 mt-2 font-bold uppercase tracking-[0.25em]">
-                      AuralithBit • Secure Data Transmission
+                      AuralithBit • Email inquiry
                     </p>
                   </div>
                 </form>
@@ -274,9 +274,9 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, type
                   <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10" />
                 </div>
                 <div className="space-y-2 sm:space-y-3">
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900">Request Confirmed!</h3>
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900">Finish Your Inquiry</h3>
                   <p className="text-slate-500 text-xs sm:text-base font-medium leading-relaxed max-w-[320px] mx-auto">
-                    Thank you, {formData.name.split(' ')[0]}! {content.successMsg}
+                    Thank you, {formData.name.split(' ')[0]}! {content.successMsg} This website cannot confirm whether the email was sent.
                   </p>
                 </div>
                 <button 

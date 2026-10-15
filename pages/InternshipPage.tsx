@@ -1,11 +1,9 @@
 
 import React from 'react';
 import { 
-  Rocket, 
   Lightbulb, 
   Users, 
   Award, 
-  TrendingUp, 
   Code, 
   Palette, 
   BarChart, 
@@ -21,80 +19,65 @@ import GlassHero from '../components/GlassHero';
 const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () => void }> = ({ onOpenEnrollment }) => {
   const whyIntern = [
     { 
-      title: 'Real Projects', 
-      desc: 'Work on actual client products, not toy examples.', 
+      title: 'Practical Work',
+      desc: 'Apply skills through practical work in your selected track.',
       icon: <Lightbulb className="w-6 h-6" /> 
     },
     { 
-      title: 'Expert Mentorship', 
-      desc: 'Guided by seniors with 5+ years of experience.', 
+      title: 'Track Guidance',
+      desc: 'Ask the team about the current format for each track.',
       icon: <Users className="w-6 h-6" /> 
     },
     { 
-      title: 'Certification', 
-      desc: 'Industry-recognized internship certificate.', 
+      title: 'Application',
+      desc: 'Contact AuralithBit to confirm openings and requirements.',
       icon: <Award className="w-6 h-6" /> 
     },
     { 
-      title: 'Stipend', 
-      desc: 'Performance-based stipend for your hard work.', 
-      icon: <TrendingUp className="w-6 h-6" /> 
+      title: 'Multiple Tracks',
+      desc: 'Internship tracks cover technology, design, and marketing.',
+      icon: <Award className="w-6 h-6" />
     }
   ];
 
   const programs = [
     { 
       title: 'Web Development', 
-      duration: '3-6 months', 
-      req: 'HTML/CSS/JS required', 
       icon: <Code className="w-5 h-5" /> 
     },
     { 
       title: 'UI/UX Design', 
-      duration: '3-4 months', 
-      req: 'Figma basics required', 
       icon: <Palette className="w-5 h-5" /> 
     },
     { 
       title: 'Digital Marketing', 
-      duration: '2-3 months', 
-      req: 'Basic marketing knowledge', 
       icon: <BarChart className="w-5 h-5" /> 
     },
     { 
       title: 'Mobile App', 
-      duration: '4-6 months', 
-      req: 'React Native/Flutter basics', 
       icon: <Smartphone className="w-5 h-5" /> 
     },
     { 
       title: 'Graphics Design', 
-      duration: '2-3 months', 
-      req: 'Adobe Suite required', 
       icon: <Layout className="w-5 h-5" /> 
     },
     { 
       title: 'Full Stack', 
-      duration: '6 months', 
-      req: 'MERN knowledge required', 
       icon: <Cpu className="w-5 h-5" /> 
     }
   ];
 
   const steps = [
-    { id: 1, title: 'Application', desc: 'Submit your CV and portfolio link.' },
-    { id: 2, title: 'Screening', desc: 'Initial review of skills and background.' },
-    { id: 3, title: 'Interview', desc: 'Technical and cultural fit conversation.' },
-    { id: 4, title: 'Onboarding', desc: 'Get introduced to the team and tools.' },
-    { id: 5, title: 'Training', desc: 'Focused guidance on real projects.' },
-    { id: 6, title: 'Completion', desc: 'Certificate and performance review.' }
+    { id: 1, title: 'Choose a Track', desc: 'Select the internship area you are interested in.' },
+    { id: 2, title: 'Send an Inquiry', desc: 'Share your contact details and selected track.' },
+    { id: 3, title: 'Confirm Details', desc: 'Ask the team about current availability and requirements.' }
   ];
 
   return (
     <div className="pt-16 bg-white">
       <GlassHero
         title={<>Kickstart Your Career with <span className="text-gradient">Real Experience</span></>}
-        subtitle={"Join the AuralithBit Internship Program. Work on live projects, get mentored by industry experts, and turn your knowledge into professional skills."}
+        subtitle={"Explore internship tracks at AuralithBit. Contact us to confirm current availability, requirements, and program details."}
         image="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=2000"
         ctaText="Apply for Internship"
         onCta={onOpenEnrollment}
@@ -133,8 +116,7 @@ const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment
                 </div>
                 <h3 className="text-2xl font-black text-[#0b0e29] mb-4">{program.title}</h3>
                 <div className="space-y-3 mb-10 flex-grow">
-                  <p className="text-indigo-600 font-black text-sm uppercase tracking-wider">{program.duration}</p>
-                  <p className="text-slate-400 text-sm font-medium">{program.req}</p>
+                  <p className="text-slate-500 text-sm font-medium">Ask us about current availability and prerequisites.</p>
                 </div>
                 <button 
                   onClick={onOpenEnrollment}
@@ -153,7 +135,7 @@ const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-black text-[#0b0e29]">How to Apply?</h2>
-            <p className="text-slate-500 font-medium">Our selection process ensures we find the most motivated candidates.</p>
+            <p className="text-slate-500 font-medium">Submit an inquiry to learn about the application process.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-12">
             {steps.map((step) => (
@@ -181,10 +163,10 @@ const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment
                 <h2 className="text-3xl font-black text-[#0b0e29] mb-10">Are You Eligible?</h2>
                 <ul className="space-y-6 mb-12">
                   {[
-                    'Completed a relevant course at AuralithBit',
-                    'Self-taught developer/designer with a portfolio',
-                    'Final year IT students looking for project work',
-                    'Dedicated and willing to learn in a fast-paced environment'
+                    'Choose the internship track you are interested in',
+                    'Share your name, email, and phone number',
+                    'Include a portfolio or LinkedIn URL if available',
+                    'Confirm prerequisites and availability with the team'
                   ].map((text, i) => (
                     <li key={i} className="flex items-center gap-4">
                       <div className="bg-teal-50 text-teal-500 p-1 rounded-full">
@@ -207,15 +189,15 @@ const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment
             <div className="bg-indigo-600 rounded-[3rem] p-12 md:p-16 text-white relative overflow-hidden flex flex-col justify-between shadow-2xl shadow-indigo-200">
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px]" />
               <div>
-                <h2 className="text-3xl font-black mb-10">Exclusive Benefits</h2>
+                <h2 className="text-3xl font-black mb-10">Before You Apply</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-12">
                   {[
-                    'Performance Stipend',
-                    'Portfolio Projects',
-                    'Networking Events',
-                    'Experience Certificate',
-                    'Job Recommendations',
-                    'Lifetime Resources'
+                    'Choose a track',
+                    'Ask about prerequisites',
+                    'Confirm current availability',
+                    'Share relevant experience',
+                    'Include a portfolio link',
+                    'Request program details'
                   ].map((benefit, i) => (
                     <div key={i} className="flex items-center gap-3 group cursor-default">
                       <div className="w-2 h-2 rounded-full bg-teal-400 group-hover:scale-150 transition-transform" />
@@ -224,9 +206,7 @@ const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment
                   ))}
                 </div>
               </div>
-              <p className="text-xs text-indigo-100/70 italic leading-relaxed">
-                *Stipend is performance-based and awarded after successful project contributions. Certificates are only issued after completing the agreed duration.
-              </p>
+              <p className="text-xs text-indigo-100/70 italic leading-relaxed">Program duration, requirements, and other details may vary by track. Please confirm them with AuralithBit before applying.</p>
             </div>
           </div>
         </div>
