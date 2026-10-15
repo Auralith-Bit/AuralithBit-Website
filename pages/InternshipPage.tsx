@@ -181,7 +181,7 @@ const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment
                 onClick={onOpenEnrollment}
                 className="w-full bg-[#0b0e29] text-white py-6 rounded-2xl font-black text-lg hover:bg-slate-800 transition-all active:scale-95"
               >
-                Submit Application
+                Start Internship Inquiry
               </button>
             </div>
 

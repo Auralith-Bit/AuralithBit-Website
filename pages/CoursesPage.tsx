@@ -20,6 +20,7 @@ import {
 import { COURSES } from '../constants';
 import GlassHero from '../components/GlassHero';
 import { View, Course } from '../types';
+import { jsPDF } from 'jspdf';
 
 const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () => void }> = ({ onOpenEnrollment }) => {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
@@ -59,43 +60,107 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
   const handleDownload = () => {
     if (!selectedCourse) return;
     setIsDownloading(true);
-    setTimeout(() => {
-      const lines = [
-        `${selectedCourse.title} — Course Syllabus`,
-        'AuralithBit | Design. Develop. Deliver.',
-        '',
-        `Level: ${selectedCourse.level}`,
-        `Duration: ${selectedCourse.duration}`,
-        `Mode: ${selectedCourse.mode}`,
-        `Price: ${selectedCourse.price}`,
-        '',
-        "What you'll learn:",
-        ...selectedCourse.learningOutcomes.map(o => `- ${o}`),
-        '',
-        'Curriculum:',
-        ...selectedCourse.curriculum.flatMap(m => [
-          `${m.title} (${m.duration})`,
-          ...m.topics.map(t => `   • ${t}`),
-        ]),
-        '',
-        'Contact us: +977 9766715793 | info@auralithbit.com.np',
-      ];
-      const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `${selectedCourse.title.replace(/\s+/g, '_')}_Syllabus.txt`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
 
+    try {
+      const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const margin = 48;
+      const contentWidth = pageWidth - margin * 2;
+      const safeText = (value: string) => value.normalize('NFKD').replace(/[^\x20-\x7E]/g, '');
+      let y = 52;
+
+      const ensureRoom = (height: number) => {
+        if (y + height > pageHeight - margin) {
+          pdf.addPage();
+          y = margin;
+        }
+      };
+
+      const addSectionTitle = (title: string) => {
+        ensureRoom(38);
+        y += 12;
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(14);
+        pdf.setTextColor(30, 41, 59);
+        pdf.text(safeText(title), margin, y);
+        y += 12;
+      };
+
+      const addParagraph = (text: string, indent = 0) => {
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(10);
+        pdf.setTextColor(71, 85, 105);
+        const lines = pdf.splitTextToSize(safeText(text), contentWidth - indent) as string[];
+        ensureRoom(lines.length * 15 + 5);
+        pdf.text(lines, margin + indent, y);
+        y += lines.length * 15 + 5;
+      };
+
+      pdf.setFillColor(79, 70, 229);
+      pdf.rect(0, 0, pageWidth, 120, 'F');
+      pdf.setTextColor(224, 231, 255);
+      pdf.setFont('helvetica', 'bold');
+      pdf.setFontSize(10);
+      pdf.text('AURALITHBIT  |  COURSE SYLLABUS', margin, 38);
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(25);
+      const titleLines = pdf.splitTextToSize(safeText(selectedCourse.title), contentWidth) as string[];
+      pdf.text(titleLines.slice(0, 2), margin, 72);
+      y = 145;
+
+      pdf.setFont('helvetica', 'normal');
+      pdf.setFontSize(10);
+      pdf.setTextColor(71, 85, 105);
+      pdf.text(`Category: ${safeText(selectedCourse.tag)}    Level: ${safeText(selectedCourse.level)}`, margin, y);
+      y += 18;
+      pdf.text(`Duration: ${safeText(selectedCourse.duration)}    Learning mode: ${safeText(selectedCourse.mode)}`, margin, y);
+      y += 24;
+
+      addSectionTitle('Course overview');
+      addParagraph(selectedCourse.description);
+      addSectionTitle("What you'll learn");
+      selectedCourse.learningOutcomes.forEach((outcome) => addParagraph(`- ${outcome}`, 8));
+      addSectionTitle('Curriculum');
+      selectedCourse.curriculum.forEach((module) => {
+        ensureRoom(38);
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(11);
+        pdf.setTextColor(49, 46, 129);
+        pdf.text(safeText(`${module.title} (${module.duration})`), margin, y);
+        y += 17;
+        module.topics.forEach((topic) => addParagraph(`- ${topic}`, 10));
+        y += 4;
+      });
+
+      ensureRoom(58);
+      addSectionTitle('Enrollment and inquiries');
+      addParagraph('Contact us to confirm current fees, schedule, and enrollment availability.');
+      addParagraph('Email: info@auralithbit.com.np');
+      addParagraph('Phone: +977 9766715793');
+
+      const totalPages = pdf.getNumberOfPages();
+      for (let page = 1; page <= totalPages; page += 1) {
+        pdf.setPage(page);
+        pdf.setDrawColor(226, 232, 240);
+        pdf.line(margin, pageHeight - 34, pageWidth - margin, pageHeight - 34);
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(8);
+        pdf.setTextColor(100, 116, 139);
+        pdf.text('AuralithBit | info@auralithbit.com.np', margin, pageHeight - 20);
+        pdf.text(`${page} / ${totalPages}`, pageWidth - margin, pageHeight - 20, { align: 'right' });
+      }
+
+      const fileName = safeText(selectedCourse.title).replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '');
+      pdf.save(`${fileName}_Syllabus.pdf`);
+      setFeedback('PDF syllabus downloaded.');
+    } catch {
+      setFeedback('Unable to generate the PDF. Please try again.');
+    } finally {
       setIsDownloading(false);
-      setFeedback('Syllabus downloaded successfully!');
-      setTimeout(() => setFeedback(null), 3000);
-    }, 800);
+      setTimeout(() => setFeedback(null), 3500);
+    }
   };
-
   const handleShare = () => {
     if (!selectedCourse) return;
     setIsSharing(true);
@@ -413,7 +478,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                     onClick={onOpenEnrollment}
                     className="w-full bg-primary-gradient text-white py-4 rounded-xl font-black text-sm hover:shadow-lg transition-all active:scale-95 shadow-blue-500/20"
                   >
-                    Enroll Now
+                    Ask About Enrollment
                   </button>
                   <button 
                     onClick={handleDownload}
@@ -449,16 +514,14 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
             title={<>Our <span className="text-gradient">Programs</span></>}
             subtitle={"Learn with Vision. Develop with Passion. Deliver with Excellence. Our flagship programs are engineered to build high-performance technical careers."}
             image="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=2000"
-            ctaText="Enroll Now"
+            ctaText="Ask About Courses"
             onCta={onOpenEnrollment}
           />
 
-          {/* 1️⃣ Catalog Section */}
           <section id="programs">
             <CourseCatalog />
           </section>
 
-          {/* 5️⃣ Course Benefits Section */}
           <section className="py-24 bg-white border-y border-slate-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <div className="text-center mb-16 space-y-4">
@@ -479,7 +542,6 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
             </div>
           </section>
 
-          {/* 7️⃣ Final CTA Banner */}
           <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="site-cta">
@@ -496,7 +558,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                       onClick={onOpenEnrollment}
                       className="w-full sm:w-auto bg-white text-indigo-600 px-12 py-5 rounded-2xl font-black text-lg hover:shadow-2xl transition-all active:scale-95 shadow-sm"
                     >
-                      Enroll Now
+                      Ask About Enrollment
                     </button>
                     <button 
                       onClick={() => { setFilterCategory('All'); setSearchQuery(''); window.scrollTo(0, 0); }}
