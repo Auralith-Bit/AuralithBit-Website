@@ -24,7 +24,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenEnrollment, currentVi
       }
     } else {
       onNavigate(view);
-      window.scrollTo(0, 0);
     }
     setIsOpen(false);
   };

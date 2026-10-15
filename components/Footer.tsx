@@ -54,7 +54,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="sm:col-span-2 lg:col-span-4 space-y-4 xs:space-y-5 sm:space-y-6">
             <div 
               className="flex items-center gap-2 cursor-pointer"
-              onClick={() => { onNavigate('home'); window.scrollTo(0, 0); }}
+              onClick={() => onNavigate('home')}
             >
               <BrandLogo className="w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10" />
               <span className="text-lg xs:text-xl sm:text-2xl font-bold tracking-tight text-slate-900">
@@ -81,7 +81,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             
             <div className="pt-1.5 xs:pt-2 sm:pt-4">
                <button 
-                onClick={() => { onNavigate('prototype'); window.scrollTo(0, 0); }}
+                onClick={() => onNavigate('prototype')}
                 className="flex items-center gap-1.5 xs:gap-2 text-[9px] xs:text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-widest hover:text-indigo-600 transition-colors"
                >
                  <LayoutPanelLeft className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-4 sm:h-4" />
@@ -96,7 +96,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               {NAV_ITEMS.map((item) => (
                 <li key={item.label}>
                   <button 
-                    onClick={() => { onNavigate(item.view); window.scrollTo(0, 0); }}
+                    onClick={() => onNavigate(item.view)}
                     className="text-slate-500 hover:text-indigo-600 transition-colors text-[11px] xs:text-xs sm:text-sm font-medium"
                   >
                     {item.label}

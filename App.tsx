@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import UpcomingClasses from './components/UpcomingClasses';
@@ -24,13 +24,18 @@ import ButtonsPrototypePage from './pages/ButtonsPrototypePage';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('home');
+  const [navigationKey, setNavigationKey] = useState(0);
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
   const [enrollModalType, setEnrollModalType] = useState<ModalType>('course');
 
   const navigate = (view: View) => {
     setCurrentView(view);
-    window.scrollTo(0, 0);
+    setNavigationKey((key) => key + 1);
   };
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [currentView, navigationKey]);
 
   const openEnrollment = (type: ModalType = 'course') => {
     setEnrollModalType(type);
