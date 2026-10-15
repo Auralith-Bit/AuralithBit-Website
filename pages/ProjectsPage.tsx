@@ -13,6 +13,7 @@ import {
   ClipboardList,
   GraduationCap,
   QrCode,
+  Receipt,
   School,
   UsersRound,
 } from 'lucide-react';
@@ -114,6 +115,13 @@ const otherProjects: OtherProject[] = [
     description: 'An internal ERP for managing courses, mentors, learners, staff, departments, projects, budgets, certificates, and notifications.',
     icon: LayoutDashboard,
     tags: ['Django', 'Operations', 'Role-based tools'],
+  },
+  {
+    name: 'Office Bills',
+    category: 'Office operations',
+    description: 'Office bill records managed alongside shared accounts, payments, and budget information in Auralith Bit’s internal ERP.',
+    icon: Receipt,
+    tags: ['Bill records', 'Shared office data', 'ERP finance'],
   },
   {
     name: 'Auralith Nexus',
