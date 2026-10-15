@@ -81,7 +81,7 @@ const SolutionsPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment:
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((s, i) => (
-              <div key={i} className="bg-[#f8f9fc] p-12 rounded-[2.5rem] flex flex-col h-full border border-slate-50 hover:bg-white hover:border-teal-500 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 group cursor-default">
+              <div key={i} className="glass-panel p-6 sm:p-10 lg:p-12 rounded-[2.5rem] flex flex-col h-full hover:border-teal-300 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 group cursor-default">
                 <div className="w-14 h-14 bg-white text-teal-600 rounded-2xl flex items-center justify-center shadow-sm mb-10 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
                   {s.icon}
                 </div>
@@ -118,7 +118,7 @@ const SolutionsPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment:
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, i) => (
-              <div key={i} className="bg-[#f8f9fc]/50 p-10 rounded-[2.5rem] border border-slate-50 text-center relative overflow-hidden group">
+              <div key={i} className="glass-panel p-6 sm:p-10 rounded-[2.5rem] text-center relative overflow-hidden group">
                 <div className="text-8xl font-black text-slate-100 absolute top-4 left-1/2 -translate-x-1/2 group-hover:text-indigo-50 transition-colors">
                   {step.num}
                 </div>
@@ -166,7 +166,7 @@ const SolutionsPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment:
             </div>
 
             {/* Right Card */}
-            <div className="lg:col-span-7 bg-[#1a1f3d] p-10 md:p-12 rounded-[3.5rem] border border-white/5 space-y-10">
+            <div className="glass-panel-dark lg:col-span-7 p-6 sm:p-10 md:p-12 rounded-[3.5rem] space-y-8 sm:space-y-10">
               <div className="space-y-6">
                 <h3 className="text-2xl font-black text-white">Target Industries</h3>
                 <div className="flex flex-wrap gap-3">
@@ -178,7 +178,7 @@ const SolutionsPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment:
                 </div>
               </div>
 
-              <div className="bg-white/5 p-10 md:p-12 rounded-[2.5rem] border border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="glass-panel-dark p-6 sm:p-10 md:p-12 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
                 <h4 className="text-white text-2xl font-black text-center md:text-left leading-snug">
                   Transforming Ideas <br className="hidden md:block" /> into Reality.
                 </h4>

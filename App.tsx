@@ -58,7 +58,7 @@ const App: React.FC = () => {
                 <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
                 <div className="relative z-10 space-y-8">
                   <h2 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
-                    Start Your Digital Journey<br />with AuralithBit
+                    Start Your Digital Journey<br className="hidden sm:block" />with AuralithBit
                   </h2>
                   <p className="text-indigo-100 text-xl max-w-2xl mx-auto font-medium">
                     Whether you're looking to launch a tech career or scale your digital presence, we're here to make it happen.

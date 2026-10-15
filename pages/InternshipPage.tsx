@@ -106,7 +106,7 @@ const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment
           <h2 className="text-4xl md:text-5xl font-black text-[#0b0e29] text-center mb-16">Why Intern With Us?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyIntern.map((item, i) => (
-              <div key={i} className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300 group cursor-default active:scale-[0.98]">
+              <div key={i} className="glass-panel p-6 sm:p-10 rounded-[2.5rem] hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300 group cursor-default active:scale-[0.98]">
                 <div className="w-14 h-14 bg-white text-teal-600 rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
                   {item.icon}
                 </div>
@@ -127,7 +127,7 @@ const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program, i) => (
-              <div key={i} className="bg-[#f8f9fc] p-10 rounded-[2.5rem] flex flex-col h-full hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300 border border-slate-50 group cursor-default">
+              <div key={i} className="glass-panel p-6 sm:p-10 rounded-[2.5rem] flex flex-col h-full hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300 group cursor-default">
                 <div className="w-14 h-14 bg-white text-teal-600 rounded-2xl flex items-center justify-center shadow-sm mb-8 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
                   {program.icon}
                 </div>
@@ -176,7 +176,7 @@ const InternshipPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-8 items-stretch">
             {/* Eligibility Card */}
-            <div className="bg-white border border-slate-100 rounded-[3rem] p-12 md:p-16 shadow-sm flex flex-col justify-between">
+            <div className="glass-panel rounded-[3rem] p-6 sm:p-10 md:p-16 flex flex-col justify-between">
               <div>
                 <h2 className="text-3xl font-black text-[#0b0e29] mb-10">Are You Eligible?</h2>
                 <ul className="space-y-6 mb-12">

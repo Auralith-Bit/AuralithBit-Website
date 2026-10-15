@@ -171,7 +171,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
       <div className="flex flex-col lg:flex-row gap-6 sm:gap-10 lg:gap-12">
         {/* Sidebar Filters - Collapsible on mobile */}
         <aside className="lg:w-64 shrink-0">
-          <div className="bg-white rounded-2xl border border-slate-100 p-4 sm:p-6 shadow-sm space-y-6 sm:space-y-8 sticky top-24">
+          <div className="glass-panel rounded-2xl p-4 sm:p-6 space-y-6 sm:space-y-8 lg:sticky lg:top-24">
             <div className="flex items-center justify-between">
               <h3 className="font-bold text-slate-900 flex items-center gap-2 text-sm sm:text-base">
                 <Filter className="w-4 h-4" /> Filters
@@ -329,7 +329,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
   const CourseDetails = ({ course }: { course: Course }) => (
     <div className="bg-slate-50 min-h-screen pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8">
+        <nav className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-400 mb-8">
           <button onClick={() => { setSelectedCourse(null); }} className="hover:text-blue-600 active:scale-95 transition-all">Home</button>
           <span>/</span>
           <button onClick={() => { setSelectedCourse(null); }} className="hover:text-blue-600 active:scale-95 transition-all">Programs</button>
@@ -346,7 +346,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
 
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-8 space-y-6">
-            <div className="bg-white rounded-2xl p-10 border border-slate-100 shadow-sm space-y-6">
+            <div className="glass-panel rounded-2xl p-6 sm:p-10 space-y-6">
               <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider">
                 {course.tag}
               </span>
@@ -378,7 +378,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-10 border border-slate-100 shadow-sm">
+            <div className="glass-panel rounded-2xl p-6 sm:p-10">
               <h2 className="text-2xl font-black text-slate-900 mb-8">What you'll learn</h2>
               <div className="grid md:grid-cols-2 gap-y-5 gap-x-10">
                 {course.learningOutcomes.map((outcome, i) => (
@@ -390,7 +390,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-10 border border-slate-100 shadow-sm space-y-8">
+            <div className="glass-panel rounded-2xl p-6 sm:p-10 space-y-8">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <h2 className="text-2xl font-black text-slate-900">Curriculum</h2>
                 <button 
@@ -426,7 +426,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-10 border border-slate-100 shadow-sm">
+            <div className="glass-panel rounded-2xl p-6 sm:p-10">
               <h2 className="text-2xl font-black text-slate-900 mb-8">Your Instructors</h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {course.instructors.map((instructor, index) => (
@@ -443,7 +443,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
             </div>
           </div>
 
-          <div className="lg:col-span-4 sticky top-24 space-y-6">
+          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
             <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-xl">
               <div className="h-56 relative group">
                 <img src={`https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800&sig=${course.id}`} className="w-full h-full object-cover" alt={course.title} />
@@ -518,7 +518,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                </div>
                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                   {courseBenefits.map((benefit, i) => (
-                    <div key={i} className="p-10 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-xl hover:border-teal-500/30 transition-all group active:scale-[0.98] cursor-default">
+                    <div key={i} className="glass-panel p-6 sm:p-10 rounded-3xl transition-all group active:scale-[0.98] cursor-default">
                        <div className="w-14 h-14 rounded-2xl bg-white text-teal-600 flex items-center justify-center mb-6 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300 shadow-sm">
                           {benefit.icon}
                        </div>
@@ -540,7 +540,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
               
               <div className="grid lg:grid-cols-3 gap-8">
                 {TESTIMONIALS.map((t) => (
-                  <div key={t.id} className="bg-white p-10 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-500 group active:scale-[0.98] cursor-default">
+                  <div key={t.id} className="glass-panel p-6 sm:p-10 rounded-3xl flex flex-col justify-between transition-all duration-500 group active:scale-[0.98] cursor-default">
                     <div>
                       <Quote className="w-10 h-10 text-blue-600/10 mb-6 group-hover:text-blue-600/20 transition-colors" />
                       <p className="text-slate-600 text-lg leading-relaxed italic font-medium">"{t.content}"</p>

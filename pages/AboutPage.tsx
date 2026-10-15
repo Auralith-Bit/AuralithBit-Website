@@ -23,7 +23,7 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
       />
 
       {/* 2️⃣ Core Values Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-indigo-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-xs font-black text-indigo-600 uppercase tracking-[0.4em]">Our Foundation</h2>
@@ -35,7 +35,7 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
               { title: 'Visionary Design', desc: 'To define the future of digital products through human-centric design and technical precision.', icon: <Lightbulb className="w-6 h-6" /> },
               { title: 'Core Integrity', desc: 'Building trust through transparent delivery and a commitment to genuine human impact.', icon: <Shield className="w-6 h-6" /> }
             ].map((v, i) => (
-              <div key={i} className="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:border-teal-500 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 group cursor-default">
+              <div key={i} className="glass-panel p-6 sm:p-10 rounded-[2.5rem] hover:border-teal-300 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 group cursor-default">
                 <div className="w-14 h-14 bg-white text-teal-600 rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
                   {v.icon}
                 </div>
@@ -119,7 +119,7 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
 
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center">
-              <div className="flex flex-col items-center bg-white rounded-2xl p-8 border border-slate-100 shadow-lg max-w-sm w-full">
+              <div className="glass-panel flex flex-col items-center rounded-2xl p-6 sm:p-8 max-w-sm w-full">
                 <div className="w-44 h-44 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-white shadow-inner">
                   <img src={ceo.image} alt={ceo.name} className="w-full h-full object-cover" />
                 </div>
@@ -131,7 +131,7 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
             </div>
 
             <div className="flex items-center">
-              <div className="bg-white p-10 rounded-2xl border border-slate-100 shadow-sm w-full">
+              <div className="glass-panel p-6 sm:p-10 rounded-2xl w-full">
                 <h4 className="text-xl sm:text-2xl font-black text-slate-900 mb-4">About Our CEO</h4>
                 <p className="text-slate-600 font-medium leading-relaxed mb-3">
                   Aakriti leads AuralithBit with a clear focus on bridging education and industry. She prioritizes hands-on, project-based learning and client-focused solutions so students graduate with practical skills and workplace confidence.

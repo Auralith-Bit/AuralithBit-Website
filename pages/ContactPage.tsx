@@ -118,7 +118,7 @@ const ContactPage: React.FC<{
           <div className="grid lg:grid-cols-12 gap-12 items-start">
 
             {/* Contact Form */}
-            <div className="lg:col-span-7 bg-white/90 p-8 md:p-10 rounded-[2rem] border border-slate-200 shadow-[0_20px_50px_rgba(15,23,42,0.08)] hover:border-indigo-200 hover:shadow-[0_24px_60px_rgba(79,70,229,0.12)] transition-all duration-300 backdrop-blur-sm">
+            <div className="glass-panel lg:col-span-7 p-5 sm:p-8 md:p-10 rounded-[2rem] hover:border-indigo-200 hover:shadow-[0_24px_60px_rgba(79,70,229,0.12)] transition-all duration-300">
 
               <h3 className="text-2xl font-black text-slate-900 mb-8">
                 Send us a Message
@@ -255,7 +255,7 @@ const ContactPage: React.FC<{
             <div className="lg:col-span-5 grid sm:grid-cols-2 gap-6">
 
               {/* Visit Us */}
-              <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm group hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300">
+              <div className="glass-panel p-6 sm:p-8 rounded-[2rem] group hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300">
 
                 <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all">
                   <MapPin className="w-6 h-6" />
@@ -273,7 +273,7 @@ const ContactPage: React.FC<{
               </div>
 
               {/* Call Us */}
-              <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm group hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300">
+              <div className="glass-panel p-6 sm:p-8 rounded-[2rem] group hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300">
 
                 <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mb-6 group-hover:bg-purple-600 group-hover:text-white transition-all">
                   <Phone className="w-6 h-6" />
@@ -291,7 +291,7 @@ const ContactPage: React.FC<{
               </div>
 
               {/* Email Us */}
-              <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm group hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300">
+              <div className="glass-panel p-6 sm:p-8 rounded-[2rem] group hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300">
 
                 <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all">
                   <Mail className="w-6 h-6" />
@@ -307,7 +307,7 @@ const ContactPage: React.FC<{
               </div>
 
               {/* Working Hours */}
-              <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm group hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300">
+              <div className="glass-panel p-6 sm:p-8 rounded-[2rem] group hover:shadow-2xl hover:border-teal-500 hover:shadow-teal-500/10 transition-all duration-300">
 
                 <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-orange-600 mb-6 group-hover:bg-orange-600 group-hover:text-white transition-all">
                   <Clock className="w-6 h-6" />

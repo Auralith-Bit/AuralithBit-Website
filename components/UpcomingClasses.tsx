@@ -1,10 +1,10 @@
 import React from 'react';
-import { View } from '../types';
+import { ModalType, View } from '../types';
 import { UPCOMING_CLASSES, COURSES } from '../constants';
 
 interface Props {
   onNavigate: (view: View) => void;
-  onOpenEnrollment: (type?: any) => void;
+  onOpenEnrollment: (type?: ModalType) => void;
 }
 
 const UpcomingClasses: React.FC<Props> = ({ onNavigate, onOpenEnrollment }) => {
@@ -34,7 +34,7 @@ const UpcomingClasses: React.FC<Props> = ({ onNavigate, onOpenEnrollment }) => {
         <h3 className="text-2xl font-bold mb-6">Upcoming Classes</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {UPCOMING_CLASSES.map((c) => (
-            <div key={c.id} className="p-6 bg-white rounded-xl shadow">
+            <div key={c.id} className="glass-panel rounded-2xl p-5 sm:p-6">
               <h4 className="text-lg font-semibold">{c.title}</h4>
               <p className="text-sm text-gray-600">{c.date} • {c.time}</p>
               <p className="mt-2 text-sm">Instructor: {c.instructor}</p>

@@ -69,6 +69,47 @@
   }
 }
 
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.glass-panel-dark {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+  backdrop-filter: blur(20px) saturate(145%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 24px 64px rgba(2, 6, 23, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
+}
+
+@media (hover: hover) {
+  .glass-panel:hover {
+    border-color: rgba(45, 212, 191, 0.48);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px))) {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.94);
+  }
+
+  .glass-panel-dark {
+    background: rgba(15, 23, 42, 0.88);
+  }
+}
+
 /* -------------------------------------------------------------------------
    Lightweight re-implementation of the "tailwindcss-animate" utility classes
    used across the modals/toasts (animate-in, fade-in, zoom-in-95,
@@ -171,5 +212,14 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .glass-panel,
+  .glass-panel-dark,
+  .glass-nav {
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    backdrop-filter: blur(12px) saturate(140%);
   }
 }

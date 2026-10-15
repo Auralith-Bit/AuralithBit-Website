@@ -30,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenEnrollment, currentVi
   };
 
   // Always use white navbar for consistency across all pages
-  const navBgClass = 'bg-white/90 backdrop-blur-md shadow-sm py-2.5 xs:py-3';
+  const navBgClass = 'glass-nav py-2.5 xs:py-3';
     
   const textColorClass = 'text-slate-900';
   const hoverColorClass = 'hover:text-teal-600';
@@ -41,15 +41,17 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenEnrollment, currentVi
       <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div 
-            className="flex items-center gap-2 cursor-pointer"
+          <button
+            type="button"
+            aria-label="AuralithBit home"
+            className="flex items-center gap-2 text-left"
             onClick={() => handleNavClick('home', '#home')}
           >
             <BrandLogo className="w-10 h-10 sm:w-11 sm:h-11" />
             <span className={`text-lg sm:text-xl font-bold tracking-tight ${textColorClass}`}>
               <span className={showLightText ? 'text-teal-300' : 'text-indigo-600'}>AuralithBit</span>
             </span>
-          </div>
+          </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
@@ -78,6 +80,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenEnrollment, currentVi
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-900 hover:text-slate-700 focus:outline-none p-1"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -86,8 +90,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenEnrollment, currentVi
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${
-        isOpen ? 'max-h-screen opacity-100 bg-white border-b' : 'max-h-0 opacity-0 pointer-events-none'
+      <div id="mobile-navigation" aria-hidden={!isOpen} inert={!isOpen} className={`md:hidden transition-all duration-300 ease-in-out ${
+        isOpen ? 'max-h-screen opacity-100 bg-white/90 backdrop-blur-xl border-b border-white/60' : 'max-h-0 opacity-0 pointer-events-none'
       } overflow-hidden`}>
         <div className="px-3 xs:px-4 pt-1.5 xs:pt-2 pb-5 xs:pb-6 space-y-1.5 xs:space-y-2">
           {NAV_ITEMS.map((item) => (
