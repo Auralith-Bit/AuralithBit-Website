@@ -107,48 +107,73 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
       </section>
 
       {/* 5️⃣ Founder & CEO Section */}
-      <section id="team" className="py-24 bg-slate-50/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-xs font-black text-indigo-600 uppercase tracking-[0.4em]">The Vision Behind AuralithBit</h2>
-            <h3 className="text-4xl font-black text-slate-900 tracking-tight">Meet Our Founder & CEO</h3>
-            <p className="text-slate-500 max-w-2xl mx-auto font-medium">
+      <section id="team" className="relative isolate overflow-hidden bg-gradient-to-br from-slate-50 via-white to-indigo-50/60 py-16 sm:py-20 lg:py-24">
+        <div aria-hidden="true" className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-indigo-200/30 blur-3xl" />
+        <div aria-hidden="true" className="absolute -bottom-32 -left-24 h-80 w-80 rounded-full bg-teal-100/50 blur-3xl" />
+
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
+            <p className="mb-3 text-[11px] font-black uppercase tracking-[0.28em] text-indigo-600 sm:text-xs sm:tracking-[0.35em]">
+              The Vision Behind AuralithBit
+            </p>
+            <h3 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+              Meet Our Founder &amp; CEO
+            </h3>
+            <p className="mx-auto mt-4 max-w-2xl text-sm font-medium leading-relaxed text-slate-600 sm:text-base">
               The driving force behind our mission to transform IT education and digital solutions.
             </p>
-          </div>
+          </header>
 
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div className="flex justify-center">
-              <div className="glass-panel flex flex-col items-center rounded-2xl p-6 sm:p-8 max-w-sm w-full">
-                <div className="w-44 h-44 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-white shadow-inner">
-                  <img src={ceo.image} alt={ceo.name} className="w-full h-full object-cover" />
-                </div>
-                <div className="text-center mt-4">
-                  <h4 className="text-xl sm:text-2xl font-extrabold text-slate-900">{ceo.name}</h4>
-                  <p className="text-xs sm:text-sm text-indigo-600 uppercase tracking-widest mt-1">{ceo.role}</p>
-                </div>
+          <div className="grid items-stretch gap-5 sm:gap-7 lg:grid-cols-[0.88fr_1.12fr] lg:gap-8">
+            <article className="relative isolate flex min-h-[26rem] flex-col justify-end overflow-hidden rounded-[1.75rem] bg-slate-950 shadow-[0_28px_70px_rgba(15,23,42,0.2)] sm:min-h-[32rem] sm:rounded-[2rem]">
+              <img src={ceo.image} alt={ceo.name} className="absolute inset-0 -z-10 h-full w-full object-cover object-center" />
+              <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950/5 via-slate-950/10 to-slate-950/90" />
+
+              <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-white glass-panel-dark sm:left-7 sm:top-7 sm:px-4 sm:text-[11px]">
+                <span className="h-1.5 w-1.5 rounded-full bg-teal-300" />
+                Founder &amp; CEO
               </div>
-            </div>
 
-            <div className="flex items-center">
-              <div className="glass-panel p-6 sm:p-10 rounded-2xl w-full">
-                <h4 className="text-xl sm:text-2xl font-black text-slate-900 mb-4">About Our CEO</h4>
-                <p className="text-slate-600 font-medium leading-relaxed mb-3">
+              <div className="relative px-5 pb-6 pt-20 sm:px-8 sm:pb-8">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Leadership</p>
+                <h4 className="text-2xl font-black tracking-tight text-white sm:text-3xl">{ceo.name}</h4>
+                <div className="mt-5 h-px w-full bg-white/25" />
+                <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/80">
+                  Guiding practical learning and client-focused work at AuralithBit.
+                </p>
+              </div>
+            </article>
+
+            <article className="glass-panel flex flex-col justify-center rounded-[1.75rem] p-5 sm:rounded-[2rem] sm:p-8 lg:p-10">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-600/20">
+                  <Award className="h-5 w-5" />
+                </span>
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-indigo-600">AuralithBit Leadership</p>
+              </div>
+
+              <h4 className="max-w-xl text-2xl font-black leading-tight tracking-tight text-slate-950 sm:text-3xl lg:text-4xl">
+                Building confidence through real-world learning.
+              </h4>
+
+              <div className="mt-6 space-y-4 text-sm font-medium leading-7 text-slate-600 sm:text-base">
+                <p>
                   Aakriti leads AuralithBit with a clear focus on bridging education and industry. She prioritizes hands-on, project-based learning and client-focused solutions so students graduate with practical skills and workplace confidence.
                 </p>
-                <p className="text-slate-600 font-medium leading-relaxed mb-4">
+                <p>
                   Under her leadership, the institute partners with real clients to give learners exposure to production workflows and delivers enterprise-grade digital solutions that help businesses scale. Her approach blends mentorship, practical experience, and a strong industry network.
                 </p>
-                <div className="mt-4">
-                  <a href="#" className="inline-flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition mr-3">
-                    <Linkedin className="w-4 h-4" /> Connect
-                  </a>
-                  <a href="#" className="inline-flex items-center gap-2 bg-white text-slate-700 px-4 py-2 rounded-lg text-sm font-semibold border border-slate-200 hover:border-teal-500 hover:text-teal-600 transition">
-                    <Mail className="w-4 h-4" /> Email
-                  </a>
-                </div>
               </div>
-            </div>
+
+              <div className="mt-7 flex flex-col gap-3 border-t border-slate-200/80 pt-6 sm:flex-row">
+                <a href="https://www.linkedin.com/company/auralithbit" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-600/20 transition hover:-translate-y-0.5 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                  <Linkedin className="h-4 w-4" /> Connect on LinkedIn
+                </a>
+                <a href="mailto:info@auralithbit.com.np" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-5 py-3 text-sm font-bold text-slate-700 transition hover:border-teal-400 hover:text-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">
+                  <Mail className="h-4 w-4" /> Email AuralithBit
+                </a>
+              </div>
+            </article>
           </div>
         </div>
       </section>
