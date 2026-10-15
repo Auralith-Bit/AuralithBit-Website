@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-export type View = 'home' | 'about' | 'courses' | 'internship' | 'solutions' | 'contact' | 'prototype';
+export type View = 'home' | 'about' | 'courses' | 'internship' | 'projects' | 'solutions' | 'contact' | 'prototype';
 
 export type ModalType = 'course' | 'internship' | 'solution';
 

@@ -17,6 +17,7 @@ import { View, ModalType } from './types';
 import AboutPage from './pages/AboutPage';
 import CoursesPage from './pages/CoursesPage';
 import InternshipPage from './pages/InternshipPage';
+import ProjectsPage from './pages/ProjectsPage';
 import SolutionsPage from './pages/SolutionsPage';
 import ContactPage from './pages/ContactPage';
 import ButtonsPrototypePage from './pages/ButtonsPrototypePage';
@@ -88,6 +89,8 @@ const App: React.FC = () => {
         <CoursesPage onNavigate={navigate} onOpenEnrollment={() => openEnrollment('course')} />
       ) : currentView === 'internship' ? (
         <InternshipPage onNavigate={navigate} onOpenEnrollment={() => openEnrollment('internship')} />
+      ) : currentView === 'projects' ? (
+        <ProjectsPage onNavigate={navigate} onOpenEnrollment={() => openEnrollment('solution')} />
       ) : currentView === 'solutions' ? (
         <SolutionsPage onNavigate={navigate} onOpenEnrollment={() => openEnrollment('solution')} />
       ) : currentView === 'contact' ? (
