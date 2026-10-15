@@ -7,7 +7,7 @@ export type ModalType = 'course' | 'internship' | 'solution';
 
 export interface CourseModule {
   title: string;
-  duration: string;
+  duration?: string;
   topics: string[];
 }
 
@@ -18,8 +18,8 @@ export interface Course {
   icon: React.ReactNode;
   tag: string;
   level: 'Beginner' | 'Intermediate' | 'Advanced';
-  duration: string;
-  mode: 'Hybrid' | 'Online' | 'Offline';
+  duration?: string;
+  mode?: 'Hybrid' | 'Online' | 'Offline';
   price: string;
   learningOutcomes: string[];
   curriculum: CourseModule[];

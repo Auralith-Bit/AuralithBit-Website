@@ -27,6 +27,24 @@ export const NAV_ITEMS: NavItem[] = [
 
 export const COURSES: Course[] = [
   {
+    id: '8',
+    title: 'Data Science',
+    description: 'Build foundations in Python-based data work, statistics, data visualization, and introductory machine learning.',
+    icon: <BrainCircuit className="w-6 h-6" />,
+    tag: 'Data Science',
+    level: 'Beginner',
+    duration: '3 Months',
+    mode: 'Offline',
+    price: 'Contact for current fees',
+    learningOutcomes: ['Use Python for data analysis', 'Prepare and clean datasets', 'Summarize data with descriptive statistics', 'Create clear data visualizations', 'Understand introductory machine learning workflows', 'Present findings from a data project'],
+    curriculum: [
+      { title: 'Data Science Foundations', topics: ['Data types and data questions', 'Python notebooks', 'Data structures and Pandas'] },
+      { title: 'Data Preparation and Statistics', topics: ['Cleaning and transforming data', 'Descriptive statistics', 'Sampling and basic probability'] },
+      { title: 'Visualization and Machine Learning', topics: ['Charts with Python', 'Supervised learning concepts', 'Training, testing, and evaluation'] },
+      { title: 'Applied Data Project', topics: ['Choose a question and dataset', 'Analyze and visualize findings', 'Present the results'] }
+    ]
+  },
+  {
     id: '1',
     title: 'UI/UX Designing',
     description: 'Master the art of user-centric design with Figma and industry-standard prototyping workflows.',
@@ -146,7 +164,7 @@ export const COURSES: Course[] = [
     ]
   },
   {
-    id: '8',
+    id: '10',
     title: 'Office Package',
     description: 'Master Microsoft Office suite including Word, Excel, PowerPoint for professional productivity.',
     icon: <Briefcase className="w-6 h-6" />,
@@ -162,7 +180,15 @@ export const COURSES: Course[] = [
       { title: 'Module 3: PowerPoint & Outlook', duration: '2 Weeks', topics: ['Presentations', 'Email Management', 'Integration'] }
     ]
   }
-];
+].sort((courseA, courseB) => {
+  const priority = ['Data Science', 'UI/UX Designing', 'Python', 'MERN Stack', 'Quality Assurance (QA)'];
+  const indexA = priority.indexOf(courseA.title);
+  const indexB = priority.indexOf(courseB.title);
+  if (indexA === -1 && indexB === -1) return 0;
+  if (indexA === -1) return 1;
+  if (indexB === -1) return -1;
+  return indexA - indexB;
+});
 
 export const SOLUTIONS: Solution[] = [
   {
@@ -196,7 +222,7 @@ export const UPCOMING_CLASSES: UpcomingClass[] = [];
 export const TESTIMONIALS: Testimonial[] = [];
 
 export const WHY_CHOOSE_US = [
-  { title: 'Course Options', description: 'Explore courses in design, development, marketing, and productivity.', icon: <Users className="w-6 h-6" /> },
+  { title: 'Course Options', description: 'Explore courses in design, development, data, marketing, and productivity.', icon: <Users className="w-6 h-6" /> },
   { title: 'Learning Modes', description: 'Course listings include online, offline, and hybrid formats.', icon: <Globe className="w-6 h-6" /> },
   { title: 'Internship Tracks', description: 'Apply separately to the available internship tracks.', icon: <TrendingUp className="w-6 h-6" /> },
   { title: 'Digital Projects', description: 'See examples of software and digital products in our portfolio.', icon: <Lightbulb className="w-6 h-6" /> }

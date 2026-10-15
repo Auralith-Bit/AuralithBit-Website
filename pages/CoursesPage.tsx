@@ -34,7 +34,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
   const [isSharing, setIsSharing] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
 
-  const categories = ['All', 'Web Development', 'Design', 'Quality Assurance', 'Marketing', 'Programming', 'Productivity'];
+  const categories = ['All', 'Web Development', 'Design', 'Quality Assurance', 'Marketing', 'Programming', 'Data Science', 'Productivity'];
   const levels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
 
   const filteredCourses = useMemo(() => {
@@ -114,7 +114,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
       pdf.setTextColor(71, 85, 105);
       pdf.text(`Category: ${safeText(selectedCourse.tag)}    Level: ${safeText(selectedCourse.level)}`, margin, y);
       y += 18;
-      pdf.text(`Duration: ${safeText(selectedCourse.duration)}    Learning mode: ${safeText(selectedCourse.mode)}`, margin, y);
+      pdf.text(`Duration: ${safeText(selectedCourse.duration ?? 'To be confirmed')}    Learning mode: ${safeText(selectedCourse.mode ?? 'To be confirmed')}`, margin, y);
       y += 24;
 
       addSectionTitle('Course overview');
@@ -127,7 +127,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(11);
         pdf.setTextColor(49, 46, 129);
-        pdf.text(safeText(`${module.title} (${module.duration})`), margin, y);
+        pdf.text(safeText(module.duration ? `${module.title} (${module.duration})` : module.title), margin, y);
         y += 17;
         module.topics.forEach((topic) => addParagraph(`- ${topic}`, 10));
         y += 4;
@@ -346,11 +346,11 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                   <div className="flex items-center gap-3 sm:gap-4 text-slate-500 text-[10px] sm:text-[11px] font-medium mb-4 sm:mb-6">
                     <div className="flex items-center gap-1">
                        <Briefcase className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400" />
-                       {course.duration}
+                       {course.duration ?? 'Schedule to be confirmed'}
                     </div>
                     <div className="flex items-center gap-1">
                        <Users className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400" />
-                       {course.mode}
+                       {course.mode ?? 'Mode to be confirmed'}
                     </div>
                   </div>
 
@@ -403,11 +403,11 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
               <div className="flex flex-wrap items-center gap-6 pt-2">
                 <div className="flex items-center gap-2 text-[13px] font-medium text-slate-500">
                   <Clock className="w-4 h-4 text-blue-600" />
-                  {course.duration}
+                  {course.duration ?? 'Schedule to be confirmed'}
                 </div>
                 <div className="flex items-center gap-2 text-[13px] font-medium text-slate-500">
                   <Users className="w-4 h-4 text-blue-600" />
-                  {course.mode}
+                  {course.mode ?? 'Mode to be confirmed'}
                 </div>
                 <div className="flex items-center gap-2 text-[13px] font-medium text-slate-500">
                   <TrendingUp className="w-4 h-4 text-blue-600" />
@@ -447,7 +447,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
                     <div className="bg-slate-50/50 p-6 flex justify-between items-center border-b border-slate-100">
                       <div>
                         <h4 className="font-bold text-slate-900">{module.title}</h4>
-                        <span className="text-[11px] text-slate-400 font-medium">{module.duration}</span>
+                        {module.duration && <span className="text-[11px] text-slate-400 font-medium">{module.duration}</span>}
                       </div>
                       <ChevronDown className="w-4 h-4 text-slate-400" />
                     </div>

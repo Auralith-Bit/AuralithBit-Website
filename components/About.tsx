@@ -45,7 +45,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
               <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 mb-2 xs:mb-3 sm:mb-4 lg:mb-6">What We Offer</h3>
               <div className="space-y-2 xs:space-y-3 sm:space-y-4 lg:space-y-6">
                 {[
-                  "Technology courses across design, development, and productivity",
+                  "Technology courses across design, development, data, and productivity",
                   "Online, offline, and hybrid learning modes",
                   "Internship tracks with a separate application process",
                   "Digital project examples in our portfolio"

@@ -72,7 +72,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate, onOpenEnrollment }) => {
             {[
               { value: '30', label: 'Trained Learners' },
               { value: '14', label: 'Projects in Portfolio' },
-              { value: '8', label: 'Courses Listed' },
+              { value: '10', label: 'Courses Listed' },
               { value: '6', label: 'Internship Tracks' },
             ].map((stat) => (
               <div key={stat.label} className="rounded-2xl border border-white/70 bg-white/95 p-4 sm:p-5 shadow-lg shadow-slate-950/10 backdrop-blur-sm">
