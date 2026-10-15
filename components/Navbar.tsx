@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
 import { View } from '../types';
@@ -12,18 +12,9 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenEnrollment, currentView }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   // Always use white navbar for consistency across all pages
   const showLightText = false;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleNavClick = (view: View, href: string) => {
     if (currentView === 'home' && view === 'home') {

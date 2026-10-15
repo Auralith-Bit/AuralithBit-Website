@@ -1,80 +1,26 @@
 import React from 'react';
-import { Target, Eye, Heart, CheckCircle2, Award, Users, Globe, Briefcase, ArrowRight, TrendingUp, Lightbulb, Code, Rocket, Zap, Shield, Linkedin, Twitter, Mail } from 'lucide-react';
+import { CheckCircle2, Award, Globe, ArrowRight, Lightbulb, Shield, Linkedin, Mail } from 'lucide-react';
+import GlassHero from '../components/GlassHero';
 import { View } from '../types';
 import { STATS } from '../constants';
 
-const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () => void }> = ({ onNavigate, onOpenEnrollment }) => {
-  const teamMembers = [
-    {
-      name: "Aakriti Bista",
-      role: "Founder & CEO",
-      image: "/team/Aakriti Bista.jpeg"
-    },
-
-    {
-      name: "Anjali Bista",
-      role: "Chief Technical Officer",
-      image: "/team/Anjali Bista.jpg"
-    },
-    {
-      name: "Parwesh Kumar Karn",
-      role: "Operations Manager",
-      image: "/team/Parwesh Kumar Karna.jpg"
-    },
-    {
-      name: "Supriya Dwivedi",
-      role: "Project Manager",
-      image: "/team/Supriya Dwivedi.jpg"
-    },
-  ];
+const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () => void }> = ({ onOpenEnrollment }) => {
+  const ceo = {
+    name: "Aakriti Bista",
+    role: "Founder & CEO",
+    image: "/team/Aakriti Bista.jpeg"
+  };
 
   return (
     <div className="pt-16 overflow-x-hidden">
-      {/* 1️⃣ Hero Section */}
-      <section className="relative min-h-auto sm:min-h-[70vh] flex items-center overflow-hidden bg-slate-900 py-8 xs:py-10 sm:py-16">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000"
-            alt="About AuralithBit - Our Team"
-            className="absolute inset-0 w-full h-full object-cover opacity-30 sm:opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-slate-900" />
-          <div className="absolute top-[-10%] right-[-10%] w-[150px] xs:w-[200px] sm:w-[300px] md:w-[400px] h-[150px] xs:h-[200px] sm:h-[300px] md:h-[400px] bg-indigo-600/20 rounded-full blur-[50px] xs:blur-[60px] sm:blur-[80px] md:blur-[100px]" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[100px] xs:w-[150px] sm:w-[250px] md:w-[400px] h-[100px] xs:h-[150px] sm:h-[250px] md:h-[400px] bg-teal-500/10 rounded-full blur-[30px] xs:blur-[40px] sm:blur-[60px] md:blur-[80px]" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-3 sm:mb-4 tracking-tight leading-tight">
-            About <span className="text-gradient">AuralithBit</span>
-          </h1>
-          <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-xl font-bold text-slate-300 tracking-[0.08em] xs:tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.25em] uppercase mb-2 sm:mb-4 flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-4">
-            <span>Design</span>
-            <span className="w-1.5 h-1.5 xs:w-1.5 sm:w-2 xs:h-1.5 sm:h-2 rounded-full bg-indigo-500"></span>
-            <span>Develop</span>
-            <span className="w-1.5 h-1.5 xs:w-1.5 sm:w-2 xs:h-1.5 sm:h-2 rounded-full bg-teal-500"></span>
-            <span className="text-teal-400">Deliver</span>
-          </p>
-          <p className="text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed font-medium px-1 xs:px-2 mb-4 xs:mb-6">
-            Discover the nexus of technical mastery and industry delivery. We are more than an institute; we are the engine of your digital future.
-          </p>
-          
-          {/* Mission Statement */}
-          <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 xs:p-6 max-w-3xl mx-auto mb-4 xs:mb-6">
-            <h3 className="text-sm xs:text-base sm:text-lg font-bold text-teal-400 mb-2">Our Mission</h3>
-            <p className="text-[11px] xs:text-xs sm:text-sm text-slate-200 leading-relaxed">
-              To bridge the gap between academic learning and industry demand by delivering production-grade IT education and enterprise solutions. We empower individuals and businesses with cutting-edge technology skills that drive real-world impact.
-            </p>
-          </div>
-
-          <button 
-            onClick={() => { document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="bg-primary-gradient text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 mx-auto hover:shadow-xl hover:shadow-indigo-500/30 transition-all hover:-translate-y-1 active:scale-95"
-          >
-            Learn More About Us
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-      </section>
+      {/* 1️⃣ Glass Hero */}
+      <GlassHero
+        title={<>About <span className="text-gradient">AuralithBit</span></>}
+        subtitle={"Discover the nexus of technical mastery and industry delivery. We are more than an institute; we are the engine of your digital future."}
+        image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000"
+        ctaText="Learn More About Us"
+        onCta={() => { document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' }); }}
+      />
 
       {/* 2️⃣ Core Values Section */}
       <section className="py-24 bg-white">
@@ -160,46 +106,49 @@ const AboutPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () 
         </div>
       </section>
 
-      {/* 5️⃣ Organization Members Section */}
+      {/* 5️⃣ Founder & CEO Section */}
       <section id="team" className="py-24 bg-slate-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-xs font-black text-indigo-600 uppercase tracking-[0.4em]">The Minds Behind AuralithBit</h2>
-            <h3 className="text-4xl font-black text-slate-900 tracking-tight">Our Leadership & Experts</h3>
+            <h2 className="text-xs font-black text-indigo-600 uppercase tracking-[0.4em]">The Vision Behind AuralithBit</h2>
+            <h3 className="text-4xl font-black text-slate-900 tracking-tight">Meet Our Founder & CEO</h3>
             <p className="text-slate-500 max-w-2xl mx-auto font-medium">
-              Meet the dedicated professionals committed to your technical growth and success.
+              The driving force behind our mission to transform IT education and digital solutions.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-            {teamMembers.map((member, i) => (
-              <div 
-                key={i} 
-                className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group"
-              >
-                <div className="aspect-[4/5] overflow-hidden relative">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
-                    <div className="flex gap-4">
-                      <a href="#" className="p-2 bg-white/10 backdrop-blur-md rounded-lg text-white hover:bg-indigo-600 transition-colors">
-                        <Linkedin className="w-4 h-4" />
-                      </a>
-                      <a href="#" className="p-2 bg-white/10 backdrop-blur-md rounded-lg text-white hover:bg-teal-600 transition-colors">
-                        <Mail className="w-4 h-4" />
-                      </a>
-                    </div>
-                  </div>
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div className="flex justify-center">
+              <div className="flex flex-col items-center bg-white rounded-2xl p-8 border border-slate-100 shadow-lg max-w-sm w-full">
+                <div className="w-44 h-44 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-white shadow-inner">
+                  <img src={ceo.image} alt={ceo.name} className="w-full h-full object-cover" />
                 </div>
-                <div className="p-6 text-center">
-                  <h4 className="text-lg font-black text-slate-900 tracking-tight whitespace-nowrap">{member.name}</h4>
-                  <p className="text-[10px] font-black text-indigo-600 uppercase tracking-widest mt-1 mb-3">{member.role}</p>
+                <div className="text-center mt-4">
+                  <h4 className="text-xl sm:text-2xl font-extrabold text-slate-900">{ceo.name}</h4>
+                  <p className="text-xs sm:text-sm text-indigo-600 uppercase tracking-widest mt-1">{ceo.role}</p>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="flex items-center">
+              <div className="bg-white p-10 rounded-2xl border border-slate-100 shadow-sm w-full">
+                <h4 className="text-xl sm:text-2xl font-black text-slate-900 mb-4">About Our CEO</h4>
+                <p className="text-slate-600 font-medium leading-relaxed mb-3">
+                  Aakriti leads AuralithBit with a clear focus on bridging education and industry. She prioritizes hands-on, project-based learning and client-focused solutions so students graduate with practical skills and workplace confidence.
+                </p>
+                <p className="text-slate-600 font-medium leading-relaxed mb-4">
+                  Under her leadership, the institute partners with real clients to give learners exposure to production workflows and delivers enterprise-grade digital solutions that help businesses scale. Her approach blends mentorship, practical experience, and a strong industry network.
+                </p>
+                <div className="mt-4">
+                  <a href="#" className="inline-flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition mr-3">
+                    <Linkedin className="w-4 h-4" /> Connect
+                  </a>
+                  <a href="#" className="inline-flex items-center gap-2 bg-white text-slate-700 px-4 py-2 rounded-lg text-sm font-semibold border border-slate-200 hover:border-teal-500 hover:text-teal-600 transition">
+                    <Mail className="w-4 h-4" /> Email
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

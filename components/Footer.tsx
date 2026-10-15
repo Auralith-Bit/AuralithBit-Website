@@ -1,9 +1,11 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Facebook, Linkedin, LayoutPanelLeft } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
 import { View } from '../types';
 import BrandLogo from './BrandLogo';
+
+const AURALITH_EMAIL = 'info@auralithbit.com.np';
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg 
@@ -21,6 +23,21 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterSent, setNewsletterSent] = useState(false);
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail.trim()) return;
+
+    const subject = encodeURIComponent('New Newsletter Signup');
+    const body = encodeURIComponent(`Email: ${newsletterEmail}`);
+    window.location.href = `mailto:${AURALITH_EMAIL}?subject=${subject}&body=${body}`;
+
+    setNewsletterSent(true);
+    setNewsletterEmail('');
+    setTimeout(() => setNewsletterSent(false), 4000);
+  };
   const socialLinks = [
     { Icon: Facebook, bgColor: 'bg-[#1877F2]', label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61583899281707&mibextid=rS40aB7S9Ucbxw6v' },
     { Icon: TikTokIcon, bgColor: 'bg-black', label: 'TikTok', href: 'https://www.tiktok.com/@auralith.bit?_r=1&_t=ZS-93Ptr3E6zKs' },
@@ -105,7 +122,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li className="flex items-start gap-1.5 xs:gap-2 sm:gap-3 text-[11px] xs:text-xs sm:text-sm text-slate-500">
                 <MapPin className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-teal-600 shrink-0 mt-0.5" />
-                <span className="font-medium">SNP-05,Milan Chowk, Bhairahawa<br />Rupandehi, Nepal</span>
+                <span className="font-medium">SNP-05, Milan Chowk, Bhairahawa<br />Rupandehi, Nepal</span>
               </li>
             </ul>
           </div>
@@ -113,16 +130,22 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="sm:col-span-2 lg:col-span-3 space-y-2.5 xs:space-y-3 sm:space-y-4">
             <h4 className="font-bold text-slate-900 uppercase text-[9px] xs:text-[10px] sm:text-xs tracking-widest">Newsletter</h4>
             <p className="text-slate-500 text-[11px] xs:text-xs sm:text-sm leading-relaxed max-w-sm font-medium">Join our local & global tech community.</p>
-            <form className="flex flex-col sm:flex-row gap-1.5 xs:gap-2" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col sm:flex-row gap-1.5 xs:gap-2" onSubmit={handleNewsletterSubmit}>
               <input 
                 type="email" 
+                required
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
                 placeholder="Email address" 
-                className="bg-slate-50 border border-slate-200 rounded-xl px-2.5 xs:px-3 sm:px-4 py-2 xs:py-2.5 sm:py-3 text-[11px] xs:text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 flex-grow"
+                className="bg-slate-50/80 border border-slate-200 rounded-xl px-2.5 xs:px-3 sm:px-4 py-2 xs:py-2.5 sm:py-3 text-[11px] xs:text-xs sm:text-sm focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-400 flex-grow shadow-sm"
               />
-              <button className="bg-indigo-600 text-white px-3 xs:px-4 sm:px-5 py-2 xs:py-2.5 sm:py-3 rounded-xl hover:bg-indigo-700 transition-all font-bold text-[10px] xs:text-xs sm:text-sm">
+              <button type="submit" className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white px-3 xs:px-4 sm:px-5 py-2 xs:py-2.5 sm:py-3 rounded-xl hover:shadow-lg hover:shadow-indigo-500/20 transition-all font-bold text-[10px] xs:text-xs sm:text-sm shrink-0">
                 Join
               </button>
             </form>
+            {newsletterSent && (
+              <p className="text-teal-600 text-[10px] xs:text-xs font-bold">Thanks! Your signup is ready to send via email.</p>
+            )}
           </div>
 
         </div>

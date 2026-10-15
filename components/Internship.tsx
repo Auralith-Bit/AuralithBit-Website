@@ -8,7 +8,7 @@ interface InternshipProps {
   onOpenEnrollment: () => void;
 }
 
-const Internship: React.FC<InternshipProps> = ({ onNavigate, onOpenEnrollment }) => {
+const Internship: React.FC<InternshipProps> = ({ onOpenEnrollment }) => {
   const features = [
     { title: 'Industry Mentorship', icon: <Award className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />, desc: 'Learn directly from seniors.' },
     { title: 'Live Client Work', icon: <Briefcase className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />, desc: 'Contribute to actual products.' },

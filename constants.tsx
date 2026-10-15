@@ -1,9 +1,6 @@
-import React from 'react';
 import {
   Code,
   Layout,
-  Smartphone,
-  Database,
   ShieldCheck,
   Cpu,
   Users,
@@ -12,9 +9,6 @@ import {
   Target,
   TrendingUp,
   BrainCircuit,
-  Lock,
-  Cloud,
-  Terminal,
   SearchCheck,
   Palette,
   Briefcase
@@ -63,11 +57,7 @@ const instructors = {
   }
 };
 
-const DEFAULT_CURRICULUM = [
-  { title: 'Module 1: Fundamentals', duration: '3 Weeks', topics: ['Environment Setup', 'Core Syntax', 'Best Practices'] },
-  { title: 'Module 2: Intermediate Concepts', duration: '4 Weeks', topics: ['Advanced API usage', 'State Management', 'Testing'] },
-  { title: 'Module 3: Advanced Engineering', duration: '5 Weeks', topics: ['Cloud Deployment', 'Security Auditing', 'Performance Tuning'] }
-];
+
 
 export const COURSES: Course[] = [
   {
@@ -79,7 +69,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '2.5 Months',
     mode: 'Offline',
-    price: 'NPR 25,000',
+    price: 'NPR 18,000',
     originalPrice: 'NPR 35,000',
     rating: 4.7,
     reviewsCount: 12,
@@ -100,11 +90,11 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '3 Months',
     mode: 'Hybrid',
-    price: 'NPR 35,000',
+    price: 'NPR 25,000',
     originalPrice: 'NPR 45,000',
     rating: 4.8,
     reviewsCount: 18,
-    instructors: [instructors.akas, instructors.anjali],
+    instructors: [instructors.anjali],
     learningOutcomes: ['Master industry-standard tools', 'Understand core principles', 'Deploy applications', 'Build real-world projects', 'Collaborate in teams', 'Best coding practices'],
     curriculum: [
       { title: 'Module 1: Frontend with React', duration: '4 Weeks', topics: ['React Basics', 'Components', 'State Management'] },
@@ -121,7 +111,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '2 Months',
     mode: 'Offline',
-    price: 'NPR 20,000',
+    price: 'NPR 15,000',
     originalPrice: 'NPR 30,000',
     rating: 4.6,
     reviewsCount: 15,
@@ -142,11 +132,11 @@ export const COURSES: Course[] = [
     level: 'Intermediate',
     duration: '2.5 Months',
     mode: 'Online',
-    price: 'NPR 28,000',
+    price: 'NPR 20,000',
     originalPrice: 'NPR 38,000',
     rating: 4.7,
     reviewsCount: 10,
-    instructors: [instructors.akas, instructors.aakriti],
+    instructors: [instructors.akas],
     learningOutcomes: ['Manual Testing', 'Automated Testing', 'Test Planning', 'Bug Tracking', 'Performance Testing', 'Agile Testing'],
     curriculum: [
       { title: 'Module 1: Testing Fundamentals', duration: '3 Weeks', topics: ['SDLC', 'Testing Types', 'Test Cases'] },
@@ -163,7 +153,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '2 Months',
     mode: 'Hybrid',
-    price: 'NPR 22,000',
+    price: 'NPR 18,000',
     originalPrice: 'NPR 32,000',
     rating: 4.5,
     reviewsCount: 14,
@@ -184,7 +174,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '2.5 Months',
     mode: 'Online',
-    price: 'NPR 26,000',
+    price: 'NPR 22,000',
     originalPrice: 'NPR 36,000',
     rating: 4.8,
     reviewsCount: 16,
@@ -205,7 +195,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '3 Months',
     mode: 'Online',
-    price: 'NPR 30,000',
+    price: 'NPR 25,000',
     originalPrice: 'NPR 40,000',
     rating: 4.9,
     reviewsCount: 20,
@@ -226,7 +216,7 @@ export const COURSES: Course[] = [
     level: 'Beginner',
     duration: '1.5 Months',
     mode: 'Offline',
-    price: 'NPR 15,000',
+    price: 'NPR 12,000',
     originalPrice: 'NPR 25,000',
     rating: 4.4,
     reviewsCount: 11,
@@ -267,15 +257,22 @@ export const SOLUTIONS: Solution[] = [
   }
 ];
 
+// Resolve instructor names from the COURSES array when possible so changes propagate
+const findInstructorFor = (title: string) => {
+  const match = COURSES.find((c) => title.includes(c.title) || c.title.includes(title) || title.toLowerCase().includes(c.title.toLowerCase()) );
+  if (match && match.instructors && match.instructors.length > 0) return match.instructors[0].name;
+  return undefined;
+};
+
 export const UPCOMING_CLASSES: UpcomingClass[] = [
-  { id: '1', title: 'UI/UX Designing Fundamentals', date: 'Dec 3', time: '10:00 AM', instructor: 'Akash Prasad Barai' },
-  { id: '2', title: 'MERN Stack Introduction', date: 'Dec 5', time: '02:00 PM', instructor: 'Supriya Dwivedi' },
-  { id: '3', title: 'Graphic Designing with Adobe', date: 'Dec 8', time: '09:00 AM', instructor: 'Anjali Bista' },
-  { id: '4', title: 'Quality Assurance Basics', date: 'Dec 10', time: '11:00 AM', instructor: 'Akash Prasad Barai' },
-  { id: '5', title: 'Web Designing Workshop', date: 'Dec 12', time: '01:00 PM', instructor: 'Supriya Dwivedi' },
-  { id: '6', title: 'Digital Marketing Strategies', date: 'Dec 15', time: '03:00 PM', instructor: 'Aakriti Bista' },
-  { id: '7', title: 'Python Programming', date: 'Dec 17', time: '10:00 AM', instructor: 'Supriya Dwivedi' },
-  { id: '8', title: 'Office Package Training', date: 'Dec 19', time: '09:00 AM', instructor: 'Anjali Bista' },
+  { id: '1', title: 'UI/UX Designing Fundamentals', date: 'Dec 3', time: '10:00 AM', instructor: findInstructorFor('UI/UX Designing') ?? 'Akash Prasad Barai' },
+  { id: '2', title: 'MERN Stack Introduction', date: 'Dec 5', time: '02:00 PM', instructor: findInstructorFor('MERN Stack') ?? 'Anjali Bista' },
+  { id: '3', title: 'Graphic Designing with Adobe', date: 'Dec 8', time: '09:00 AM', instructor: findInstructorFor('Graphic Designing') ?? 'Anjali Bista' },
+  { id: '4', title: 'Quality Assurance Basics', date: 'Dec 10', time: '11:00 AM', instructor: findInstructorFor('Quality Assurance') ?? 'Supriya Dwivedi' },
+  { id: '5', title: 'Web Designing Workshop', date: 'Dec 12', time: '01:00 PM', instructor: findInstructorFor('Web Designing') ?? 'Supriya Dwivedi' },
+  { id: '6', title: 'Digital Marketing Strategies', date: 'Dec 15', time: '03:00 PM', instructor: findInstructorFor('Digital Marketing') ?? 'Aakriti Bista' },
+  { id: '7', title: 'Python Programming', date: 'Dec 17', time: '10:00 AM', instructor: findInstructorFor('Python') ?? 'Supriya Dwivedi' },
+  { id: '8', title: 'Office Package Training', date: 'Dec 19', time: '09:00 AM', instructor: findInstructorFor('Office Package') ?? 'Anjali Bista' },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [

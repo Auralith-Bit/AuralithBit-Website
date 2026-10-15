@@ -8,7 +8,7 @@ interface AboutProps {
   onOpenEnrollment: () => void;
 }
 
-const About: React.FC<AboutProps> = ({ onNavigate, onOpenEnrollment }) => {
+const About: React.FC<AboutProps> = ({ onNavigate }) => {
   return (
     <section id="about" className="py-8 xs:py-10 sm:py-16 lg:py-20 bg-white relative">
       <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">

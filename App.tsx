@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import UpcomingClasses from './components/UpcomingClasses';
 import About from './components/About';
 import Courses from './components/Courses';
 import Internship from './components/Internship';
@@ -9,7 +9,7 @@ import Solutions from './components/Solutions';
 import WhyChooseUs from './components/WhyChooseUs';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
-import AIConsultant from './components/AIConsultant';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import EnrollmentModal from './components/EnrollmentModal';
 import { View, ModalType } from './types';
 
@@ -43,6 +43,7 @@ const App: React.FC = () => {
       {currentView === 'home' ? (
         <>
           <Hero onNavigate={navigate} onOpenEnrollment={() => openEnrollment('course')} />
+          <UpcomingClasses onNavigate={navigate} onOpenEnrollment={() => openEnrollment('course')} />
           <About onNavigate={navigate} onOpenEnrollment={() => openEnrollment('course')} />
           <Courses onNavigate={navigate} onOpenEnrollment={() => openEnrollment('course')} />
           <Internship onNavigate={navigate} onOpenEnrollment={() => openEnrollment('internship')} />
@@ -104,8 +105,7 @@ const App: React.FC = () => {
         type={enrollModalType}
       />
 
-      {/* Advanced AI Consultant Component */}
-      <AIConsultant />
+      <FloatingWhatsApp />
     </main>
   );
 };

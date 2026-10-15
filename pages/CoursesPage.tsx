@@ -4,7 +4,6 @@ import {
   ArrowRight, 
   Star, 
   Clock, 
-  GraduationCap, 
   Filter, 
   ChevronRight,
   ChevronDown,
@@ -22,9 +21,10 @@ import {
   Loader2
 } from 'lucide-react';
 import { COURSES, TESTIMONIALS } from '../constants';
+import GlassHero from '../components/GlassHero';
 import { View, Course } from '../types';
 
-const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () => void }> = ({ onNavigate, onOpenEnrollment }) => {
+const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: () => void }> = ({ onOpenEnrollment }) => {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [filterCategory, setFilterCategory] = useState('All');
   const [filterLevel, setFilterLevel] = useState('All');
@@ -40,31 +40,99 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
   const levels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
 
   const filteredCourses = useMemo(() => {
-    return COURSES.filter(course => {
+    const filtered = COURSES.filter(course => {
       const matchesCategory = filterCategory === 'All' || course.tag === filterCategory;
       const matchesLevel = filterLevel === 'All' || course.level === filterLevel;
       const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             course.description.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesLevel && matchesSearch;
     });
-  }, [filterCategory, filterLevel, searchQuery]);
+
+    const priceToNumber = (price: string) => Number(price.replace(/[^0-9]/g, '')) || 0;
+
+    const sorted = [...filtered];
+    switch (sortBy) {
+      case 'Price: Low to High':
+        sorted.sort((a, b) => priceToNumber(a.price) - priceToNumber(b.price));
+        break;
+      case 'Price: High to Low':
+        sorted.sort((a, b) => priceToNumber(b.price) - priceToNumber(a.price));
+        break;
+      case 'Highest Rated':
+        sorted.sort((a, b) => b.rating - a.rating);
+        break;
+      case 'Most Popular':
+        sorted.sort((a, b) => b.reviewsCount - a.reviewsCount);
+        break;
+      default:
+        break; // Relevance = original catalog order
+    }
+    return sorted;
+  }, [filterCategory, filterLevel, searchQuery, sortBy]);
 
   const handleDownload = () => {
+    if (!selectedCourse) return;
     setIsDownloading(true);
     setTimeout(() => {
+      const lines = [
+        `${selectedCourse.title} — Course Syllabus`,
+        'AuralithBit | Design. Develop. Deliver.',
+        '',
+        `Level: ${selectedCourse.level}`,
+        `Duration: ${selectedCourse.duration}`,
+        `Mode: ${selectedCourse.mode}`,
+        `Price: ${selectedCourse.price}`,
+        '',
+        "What you'll learn:",
+        ...selectedCourse.learningOutcomes.map(o => `- ${o}`),
+        '',
+        'Curriculum:',
+        ...selectedCourse.curriculum.flatMap(m => [
+          `${m.title} (${m.duration})`,
+          ...m.topics.map(t => `   • ${t}`),
+        ]),
+        '',
+        'Contact us: +977 9766715793 | info@auralithbit.com.np',
+      ];
+      const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${selectedCourse.title.replace(/\s+/g, '_')}_Syllabus.txt`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
       setIsDownloading(false);
-      setFeedback("Syllabus download started successfully!");
+      setFeedback('Syllabus downloaded successfully!');
       setTimeout(() => setFeedback(null), 3000);
-    }, 1200);
+    }, 800);
   };
 
   const handleShare = () => {
+    if (!selectedCourse) return;
     setIsSharing(true);
-    setTimeout(() => {
+    const shareUrl = `${window.location.origin}${window.location.pathname}`;
+    const shareText = `Check out the ${selectedCourse.title} course at AuralithBit!`;
+
+    const finish = (msg: string) => {
       setIsSharing(false);
-      setFeedback("Link copied to clipboard!");
+      setFeedback(msg);
       setTimeout(() => setFeedback(null), 3000);
-    }, 800);
+    };
+
+    if (navigator.share) {
+      navigator.share({ title: selectedCourse.title, text: shareText, url: shareUrl })
+        .then(() => finish('Shared successfully!'))
+        .catch(() => setIsSharing(false));
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(shareUrl)
+        .then(() => finish('Link copied to clipboard!'))
+        .catch(() => finish('Unable to copy link. Please copy it manually.'));
+    } else {
+      finish('Sharing is not supported on this browser.');
+    }
   };
 
   const courseBenefits = [
@@ -177,9 +245,19 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
             </p>
             <div className="flex items-center gap-2">
               <span className="text-xs sm:text-sm font-medium text-slate-400">Sort by:</span>
-              <div className="flex items-center gap-1 group cursor-pointer">
-                <span className="text-xs sm:text-sm font-bold text-slate-900">{sortBy}</span>
-                <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-slate-900" />
+              <div className="relative flex items-center">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="appearance-none bg-transparent pr-5 text-xs sm:text-sm font-bold text-slate-900 focus:outline-none cursor-pointer"
+                >
+                  <option>Relevance</option>
+                  <option>Price: Low to High</option>
+                  <option>Price: High to Low</option>
+                  <option>Highest Rated</option>
+                  <option>Most Popular</option>
+                </select>
+                <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-slate-900 absolute right-0 pointer-events-none" />
               </div>
             </div>
           </div>
@@ -187,6 +265,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
             {filteredCourses.map((course) => (
               <div 
+                id={`course-${course.id}`}
                 key={course.id} 
                 className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group cursor-pointer active:scale-[0.98]"
                 onClick={() => { setSelectedCourse(course); window.scrollTo(0, 0); }}
@@ -417,52 +496,13 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
     <div className="pt-16 bg-[#fafafa]">
       {!selectedCourse ? (
         <>
-          {/* HERO SECTION */}
-          <section className="relative min-h-auto sm:min-h-[70vh] flex items-center overflow-hidden bg-slate-900 py-8 xs:py-10 sm:py-16">
-            <div className="absolute inset-0 z-0">
-              <img
-                src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=2000"
-                alt="Our Programs - IT Courses"
-                className="absolute inset-0 w-full h-full object-cover opacity-30 sm:opacity-40"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-slate-900" />
-              <div className="absolute top-[-10%] right-[-10%] w-[150px] xs:w-[200px] sm:w-[300px] md:w-[400px] h-[150px] xs:h-[200px] sm:h-[300px] md:h-[400px] bg-indigo-600/20 rounded-full blur-[50px] xs:blur-[60px] sm:blur-[80px] md:blur-[100px]" />
-              <div className="absolute bottom-[-10%] left-[-10%] w-[100px] xs:w-[150px] sm:w-[250px] md:w-[400px] h-[100px] xs:h-[150px] sm:h-[250px] md:h-[400px] bg-teal-500/10 rounded-full blur-[30px] xs:blur-[40px] sm:blur-[60px] md:blur-[80px]" />
-            </div>
-
-            <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-3 sm:mb-4 tracking-tight leading-tight">
-                Our <span className="text-gradient">Programs</span>
-              </h1>
-              <p className="text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-xl font-bold text-slate-300 tracking-[0.08em] xs:tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.25em] uppercase mb-2 sm:mb-4 flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-4">
-                <span>Learn</span>
-                <span className="w-1.5 h-1.5 xs:w-1.5 sm:w-2 xs:h-1.5 sm:h-2 rounded-full bg-indigo-500"></span>
-                <span>Develop</span>
-                <span className="w-1.5 h-1.5 xs:w-1.5 sm:w-2 xs:h-1.5 sm:h-2 rounded-full bg-teal-500"></span>
-                <span className="text-teal-400">Master</span>
-              </p>
-              
-              <p className="text-indigo-100/70 text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed font-medium px-1 xs:px-2 mb-4 xs:mb-6">
-                Learn with Vision. Develop with Passion. Deliver with Excellence. Our flagship programs are engineered to build high-performance technical careers.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-4 sm:mt-6">
-                <button 
-                  onClick={onOpenEnrollment}
-                  className="bg-primary-gradient text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-sm sm:text-base shadow-xl shadow-indigo-500/20 hover:shadow-2xl hover:shadow-indigo-500/40 transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2"
-                >
-                  Enroll Now
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <button 
-                  onClick={() => document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-sm sm:text-base hover:bg-white/20 transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2"
-                >
-                  Explore Programs
-                </button>
-              </div>
-            </div>
-          </section>
+          <GlassHero
+            title={<>Our <span className="text-gradient">Programs</span></>}
+            subtitle={"Learn with Vision. Develop with Passion. Deliver with Excellence. Our flagship programs are engineered to build high-performance technical careers."}
+            image="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=2000"
+            ctaText="Enroll Now"
+            onCta={onOpenEnrollment}
+          />
 
           {/* 1️⃣ Catalog Section */}
           <section id="programs">
@@ -521,7 +561,7 @@ const CoursesPage: React.FC<{ onNavigate: (v: View) => void, onOpenEnrollment: (
           {/* 7️⃣ Final CTA Banner */}
           <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="bg-primary-gradient rounded-[3rem] p-16 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-indigo-500/30">
+              <div className="site-cta">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
                 <div className="relative z-10 space-y-10">
                   <div className="inline-flex p-4 rounded-2xl bg-white/20 backdrop-blur-md mb-2">
