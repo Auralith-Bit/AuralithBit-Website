@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenEnrollment, currentVi
   const activeColorClass = 'text-teal-600';
 
   return (
-    <nav className={`fixed w-full z-[1000] transition-all duration-300 ${navBgClass}`}>
+    <nav className={`isolate fixed left-0 right-0 top-0 z-[1000] transition-all duration-300 ${navBgClass}`}>
       <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -75,10 +75,10 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenEnrollment, currentVi
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="md:hidden">
+          <div className="mobile-menu-toggle md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-900 hover:text-slate-700 focus:outline-none p-1"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200/80 bg-white/80 text-slate-900 shadow-sm hover:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"

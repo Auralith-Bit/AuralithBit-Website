@@ -8,10 +8,18 @@
 
 @layer base {
   html {
+    width: 100%;
+    margin: 0;
+    overflow-x: clip;
     scroll-behavior: smooth;
   }
 
   body {
+    width: 100%;
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: clip;
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -23,6 +31,12 @@
     max-width: 100%;
     height: auto;
   }
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
 }
 
 @layer utilities {
@@ -91,6 +105,19 @@
   backdrop-filter: blur(18px) saturate(150%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.75);
   box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
+}
+
+.mobile-menu-toggle {
+  position: relative;
+  z-index: 1001;
+  display: flex;
+  flex: 0 0 auto;
+}
+
+@media (min-width: 48rem) {
+  .mobile-menu-toggle {
+    display: none;
+  }
 }
 
 @media (hover: hover) {
