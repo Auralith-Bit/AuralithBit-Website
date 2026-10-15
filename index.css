@@ -17,11 +17,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Prevent horizontal overflow on small screens */
-  * {
-    max-width: 100%;
-  }
-
   img,
   svg,
   video {
@@ -141,4 +136,40 @@
 
 .duration-500 {
   animation-duration: 500ms;
+}
+
+@media (max-width: 639px) {
+  .py-24 {
+    padding-block: 3.5rem;
+  }
+
+  .py-20 {
+    padding-block: 3rem;
+  }
+
+  .p-10,
+  .p-12 {
+    padding: clamp(1.25rem, 5vw, 2rem);
+  }
+
+  .text-5xl {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.1;
+  }
+
+  .text-4xl {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+    line-height: 1.15;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
